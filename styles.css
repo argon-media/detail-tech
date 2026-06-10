@@ -150,6 +150,13 @@ h1, h2, h3, h4, h5, h6 { letter-spacing: -1px; }
   border: 1px solid var(--line);
 }
 .btn--ghost:hover { background: var(--surface-2); border-color: var(--line-strong); color: var(--white); transform: translateY(-2px); }
+.btn--google {
+  background: #ffffff;
+  color: #1f1f1f;
+  border: 1px solid #dadce0;
+  font-weight: 600;
+}
+.btn--google:hover { background: #f5f7fa; color: #1f1f1f; transform: translateY(-2px); box-shadow: 0 14px 38px -14px rgba(0,0,0,0.4); }
 .btn--solid-dark {
   background: var(--surface-2);
   color: var(--white);
