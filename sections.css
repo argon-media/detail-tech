@@ -354,6 +354,11 @@
 .mobile-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; margin-top: 26px; }
 .mobile-actions .link-cta { margin-top: 0; }
 
+.areas-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 24px; }
+.areas-list li { position: relative; padding-left: 18px; color: var(--text); font-size: 0.95rem; line-height: 1.5; }
+.areas-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+@media (max-width: 560px) { .areas-list { grid-template-columns: 1fr; } }
+
 /* ---------- Watch grid (multiple videos) ---------- */
 .watch__grid { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; max-width: 1100px; margin: 44px auto 0; }
 .watch__grid .watch__frame { position: relative; max-width: none; margin: 0; aspect-ratio: 16/9; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-strong); background: #000; }
