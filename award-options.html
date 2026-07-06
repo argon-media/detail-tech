@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Banner Award — Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --blue:#00ABDF; --blue-deep:#0089b4; --blue-bright:#34CEF6;
+    --line:rgba(255,255,255,.1); --line-strong:rgba(255,255,255,.18);
+    --muted:#9BA1A8; --muted-2:#6E747B; --text:#EAECEE;
+    --ff-display:"Outfit",system-ui,sans-serif; --ff-body:"Inter",system-ui,sans-serif; --ff-mono:"JetBrains Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--ff-body);background:#e7e5df;color:var(--text);-webkit-font-smoothing:antialiased}
+  .page{width:max-content;min-width:100%;min-height:100vh;box-sizing:border-box;padding:48px;background:#e7e5df}
+  h1.title{font-family:var(--ff-display);font-weight:900;font-style:italic;text-transform:uppercase;color:#111;font-size:1.8rem;letter-spacing:-1px}
+  .sub{color:#555;margin:8px 0 36px;max-width:60ch;font-size:.95rem;line-height:1.5}
+  .row{display:flex;gap:40px;align-items:flex-start}
+  .frame{flex:none;width:420px}
+  .flabel{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#111;font-weight:700;margin-bottom:6px}
+  .fnote{font-size:.8rem;color:#555;margin-bottom:12px;line-height:1.4;min-height:34px}
+  /* dark hero-ish stage */
+  .stage{position:relative;border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.18);background:#0A0A0A;height:330px;display:flex;align-items:flex-end}
+  .stage__bg{position:absolute;inset:0;background:url('assets/img/wrap.jpg') center/cover}
+  .stage__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,10,.5),rgba(8,9,10,.2) 30%,rgba(8,9,10,.78) 80%,#0A0A0A);}
+  .stage__inner{position:relative;z-index:2;padding:22px;width:100%;display:flex;justify-content:flex-end}
+  .aside{width:248px;display:flex;flex-direction:column;gap:12px}
+
+  /* base rating card (matches site) */
+  .rcard{background:rgba(18,20,23,.82);backdrop-filter:blur(10px);border:1px solid var(--line-strong);border-radius:12px;padding:18px 20px}
+  .rtop{display:flex;align-items:center;gap:9px}
+  .rtop b{font-family:var(--ff-display);font-weight:600;font-size:.9rem}
+  .glogo{width:20px;height:20px}
+  .stars{display:inline-flex;gap:2px;margin-top:10px;color:#FFC53D}
+  .stars svg{width:17px;height:17px}
+  .rnum{font-family:var(--ff-display);font-weight:900;font-style:italic;font-size:1.9rem;line-height:1;margin-top:10px;display:flex;align-items:baseline;gap:7px}
+  .rnum small{font-size:.72rem;font-weight:500;font-family:var(--ff-body);color:var(--muted)}
+
+  /* ---- A: slim glass pill ---- */
+  .pill{display:inline-flex;align-items:center;gap:9px;align-self:flex-start;padding:8px 14px;border-radius:999px;background:rgba(18,20,23,.82);backdrop-filter:blur(10px);border:1px solid var(--line-strong);font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--text);white-space:nowrap}
+  .pill svg{width:14px;height:14px;color:var(--blue);flex-shrink:0}
+
+  /* ---- B: integrated footer row in card ---- */
+  .rdiv{height:1px;background:var(--line);margin:14px 0 12px}
+  .brow{display:flex;align-items:center;gap:11px}
+  .bseal{width:34px;height:auto;flex-shrink:0}
+  .brow b{font-family:var(--ff-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:.82rem;letter-spacing:-.4px;line-height:1.05;display:block}
+  .brow span{font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px}
+
+  /* ---- C: white seal no chip ---- */
+  .seal{display:flex;align-items:center;gap:13px;align-self:flex-start}
+  .seal img{width:58px;height:auto;flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+  .seal__t{line-height:1.15}
+  .seal__lead{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .seal__main{font-family:var(--ff-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:.86rem;letter-spacing:-.4px;margin-top:2px;color:#fff}
+  .seal__yrs{font-family:var(--ff-display);font-weight:700;font-size:.72rem;color:var(--blue-bright);margin-top:1px}
+
+  /* ---- D: text-only, underline accent ---- */
+  .txt{align-self:flex-start;max-width:230px}
+  .txt__k{display:inline-flex;align-items:center;gap:8px;font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .txt__k svg{width:13px;height:13px}
+  .txt__m{font-family:var(--ff-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:1.05rem;letter-spacing:-.5px;color:#fff;margin-top:7px;line-height:1.05;padding-bottom:8px;border-bottom:2px solid var(--blue)}
+
+  /* ---- E: compact corner tag ---- */
+  .tag{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;padding:7px 12px 7px 8px;border-radius:8px;background:rgba(18,20,23,.82);backdrop-filter:blur(10px);border:1px solid var(--line-strong)}
+  .tag img{width:30px;height:auto;flex-shrink:0}
+  .tag b{font-family:var(--ff-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:.72rem;letter-spacing:-.3px;line-height:1.05;color:#fff;display:block}
+  .tag span{font-family:var(--ff-mono);font-size:.56rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px}
+
+  /* ---- F: current (white chip) for reference ---- */
+  .chip{background:#fff;border-radius:12px;border:1px solid var(--line-strong);padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .chip img{width:54px;height:auto;flex-shrink:0}
+  .chip__lead{font-family:var(--ff-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+  .chip__main{font-family:var(--ff-display);font-weight:800;font-style:italic;text-transform:uppercase;font-size:.9rem;letter-spacing:-.5px;color:#0A0A0A;margin-top:3px}
+  .chip__yrs{font-family:var(--ff-display);font-weight:700;font-size:.72rem;color:var(--blue-deep);margin-top:2px}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1 class="title">Banner award — pick a treatment</h1>
+  <p class="sub">Same hero, six ways to show the McHenry County award above your Google rating card. All minimal; reply with the letter you want (e.g. "A") and I'll wire it into the live banner.</p>
+
+  <div class="row">
+
+    <!-- A -->
+    <div class="frame">
+      <div class="flabel">A · Slim glass pill</div>
+      <div class="fnote">One quiet line in the same glass as the rating card. Most minimal.</div>
+      <div class="stage"><div class="stage__bg"></div><div class="stage__scrim"></div><div class="stage__inner"><div class="aside">
+        <div class="pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>Best Detailer · McHenry Co. '24 &amp; '25</div>
+        <div class="rcard">
+          <div class="rtop"><svg class="glogo" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg><b>Google Reviews</b></div>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <div class="rnum">5.0 <small>/ 5 · 299+ reviews</small></div>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- B -->
+    <div class="frame">
+      <div class="flabel">B · Built into the card</div>
+      <div class="fnote">No extra box at all — the award lives as a footer row inside your Google card.</div>
+      <div class="stage"><div class="stage__bg"></div><div class="stage__scrim"></div><div class="stage__inner"><div class="aside">
+        <div class="rcard">
+          <div class="rtop"><svg class="glogo" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg><b>Google Reviews</b></div>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <div class="rnum">5.0 <small>/ 5 · 299+ reviews</small></div>
+          <div class="rdiv"></div>
+          <div class="brow"><img class="bseal" src="assets/award-best-detailer-white.png" alt="" /><div><b>Best Detailer in McHenry Co.</b><span>Awarded 2024 &amp; 2025</span></div></div>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- C -->
+    <div class="frame">
+      <div class="flabel">C · White seal, no box</div>
+      <div class="fnote">The badge itself (white version) floating clean above the card, with a small caption.</div>
+      <div class="stage"><div class="stage__bg"></div><div class="stage__scrim"></div><div class="stage__inner"><div class="aside">
+        <div class="seal"><img src="assets/award-best-detailer-white.png" alt="" /><div class="seal__t"><div class="seal__lead">McHenry County</div><div class="seal__main">Awarded Best Detailer</div><div class="seal__yrs">2024 &amp; 2025</div></div></div>
+        <div class="rcard">
+          <div class="rtop"><svg class="glogo" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg><b>Google Reviews</b></div>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <div class="rnum">5.0 <small>/ 5 · 299+ reviews</small></div>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- D -->
+    <div class="frame">
+      <div class="flabel">D · Text only, blue underline</div>
+      <div class="fnote">No badge graphic in the banner — just a clean typographic claim. Lightest possible.</div>
+      <div class="stage"><div class="stage__bg"></div><div class="stage__scrim"></div><div class="stage__inner"><div class="aside">
+        <div class="txt"><span class="txt__k"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>Awarded · McHenry County</span><div class="txt__m">Best Detailer<br />2024 &amp; 2025</div></div>
+        <div class="rcard">
+          <div class="rtop"><svg class="glogo" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg><b>Google Reviews</b></div>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <div class="rnum">5.0 <small>/ 5 · 299+ reviews</small></div>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- E -->
+    <div class="frame">
+      <div class="flabel">E · Compact tag</div>
+      <div class="fnote">Tiny mini-seal + two lines in one small glass tag. Reads instantly, takes little room.</div>
+      <div class="stage"><div class="stage__bg"></div><div class="stage__scrim"></div><div class="stage__inner"><div class="aside">
+        <div class="tag"><img src="assets/award-best-detailer-white.png" alt="" /><div><b>Best Detailer · McHenry Co.</b><span>Awarded 2024 &amp; 2025</span></div></div>
+        <div class="rcard">
+          <div class="rtop"><svg class="glogo" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg><b>Google Reviews</b></div>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <div class="rnum">5.0 <small>/ 5 · 299+ reviews</small></div>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- F current -->
+    <div class="frame">
+      <div class="flabel">F · Current (white chip)</div>
+      <div class="fnote">What's live now — the bright white block. Shown for comparison.</div>
+      <div class="stage"><div class="stage__bg"></div><div class="stage__scrim"></div><div class="stage__inner"><div class="aside">
+        <div class="chip"><img src="assets/award-best-detailer.png" alt="" /><div><div class="chip__lead">McHenry County</div><div class="chip__main">Awarded Best Detailer</div><div class="chip__yrs">2024 &amp; 2025 · Two Years Running</div></div></div>
+        <div class="rcard">
+          <div class="rtop"><svg class="glogo" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg><b>Google Reviews</b></div>
+          <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <div class="rnum">5.0 <small>/ 5 · 299+ reviews</small></div>
+        </div>
+      </div></div></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

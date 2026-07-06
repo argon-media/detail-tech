@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trusted &amp; Warrantied — 5 Minimal Variations | Detail Tech</title>
+<meta name="design_doc_mode" content="canvas" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="sections.css" />
+<template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#0A0A0A"/><text x="600" y="380" text-anchor="middle" font-family="Arial" font-size="80" font-weight="800" fill="#00ABDF">TRUST STRIP</text><text x="600" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#EAECEE">5 minimal options</text></svg>
+</template>
+<style>
+  body { background: #070809; }
+  .doc { max-width: 1180px; margin: 0 auto; padding: clamp(28px,5vw,56px) var(--gutter) 90px; }
+  .doc__title { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -1px; font-size: clamp(1.7rem,3.6vw,2.5rem); }
+  .doc__sub { color: var(--muted); margin-top: 10px; max-width: 62ch; line-height: 1.7; }
+  .opt { margin-top: clamp(30px,4vw,52px); }
+  .opt__bar { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .opt__badge { font-family: var(--ff-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #03171d; background: var(--blue); padding: 5px 11px; border-radius: 100px; }
+  .opt__name { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.5px; font-size: 1rem; }
+  .opt__note { color: var(--muted-2); font-size: 0.84rem; }
+  .stage { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: clamp(26px,4vw,48px) clamp(20px,3vw,40px); }
+
+  /* shared bits */
+  .starrow { display: inline-flex; gap: 2px; color: #FFC53D; }
+  .starrow svg { width: 17px; height: 17px; }
+  .lbl { font-family: var(--ff-mono); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .rev { color: var(--text); font-size: 0.94rem; }
+  .rev b { color: var(--white); font-weight: 800; }
+
+  /* logo pill (white) */
+  .pill { display: grid; place-items: center; background: #fff; border: 1px solid var(--line-strong); border-radius: 12px; }
+  .pill img { max-width: 100%; max-height: 100%; width: auto; object-fit: contain; display: block; }
+
+  /* ============ V1 · Inline pill row (dark) ============ */
+  .v1 { display: flex; align-items: center; gap: clamp(16px,2.4vw,30px); flex-wrap: wrap; }
+  .v1__rev { display: flex; align-items: center; gap: 10px; }
+  .v1__logos { display: flex; align-items: center; gap: 12px; margin-left: auto; flex-wrap: wrap; }
+  .v1 .pill { height: 52px; padding: 10px 18px; }
+  .v1 .pill img { height: 30px; width: auto; }
+  @media (max-width: 720px) { .v1__logos { margin-left: 0; } }
+
+  /* ============ V2 · Light band ============ */
+  .v2 { background: #fff; border-radius: 14px; padding: clamp(20px,3vw,30px) clamp(22px,3.5vw,40px); display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+  .v2__head { display: flex; flex-direction: column; gap: 6px; }
+  .v2__head .lbl { color: #6b7178; }
+  .v2__rev { display: flex; align-items: center; gap: 9px; color: #14181c; font-size: 0.95rem; }
+  .v2__rev b { font-weight: 800; }
+  .v2__logos { display: flex; align-items: center; gap: clamp(20px,3vw,40px); flex-wrap: wrap; }
+  .v2__logos img { height: 34px; width: auto; object-fit: contain; display: block; }
+  .v2__logos img.tall { height: 46px; }
+
+  /* ============ V3 · Centered, divided ============ */
+  .v3 { text-align: center; }
+  .v3__head { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+  .v3__logos { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+  .v3__cell { display: flex; align-items: center; gap: 14px; padding: 0 clamp(18px,3vw,34px); }
+  .v3__cell + .v3__cell { border-left: 1px solid var(--line-strong); }
+  .v3 .pill { height: 46px; padding: 8px 14px; }
+  .v3 .pill img { height: 28px; width: auto; }
+  .v3__cap { font-family: var(--ff-mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: left; line-height: 1.4; }
+  @media (max-width: 720px) { .v3__cell { padding: 12px; } .v3__cell + .v3__cell { border-left: 0; } }
+
+  /* ============ V4 · Airy 4-up (no boxes on labels) ============ */
+  .v4__head { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 26px; }
+  .v4__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px,2vw,22px); }
+  .v4__cell { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+  .v4__grid .pill { width: 100%; height: 84px; padding: 16px 20px; border-radius: 14px; }
+  .v4__grid .pill img { height: 48px; width: auto; }
+  .v4__cap { font-family: var(--ff-mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+  @media (max-width: 720px) { .v4__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+
+  /* ============ V5 · Label left / logos right ============ */
+  .v5 { display: flex; align-items: center; gap: clamp(24px,4vw,56px); flex-wrap: wrap; }
+  .v5__left { display: flex; flex-direction: column; gap: 9px; }
+  .v5__left h4 { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.5px; font-size: 1.15rem; }
+  .v5__rev { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.88rem; }
+  .v5__rev b { color: var(--white); font-weight: 700; }
+  .v5__logos { display: flex; align-items: center; gap: 12px; margin-left: auto; flex-wrap: wrap; }
+  .v5 .pill { height: 58px; padding: 12px 20px; }
+  .v5 .pill img { height: 32px; width: auto; }
+  @media (max-width: 720px) { .v5__logos { margin-left: 0; } }
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1 class="doc__title">Trusted &amp; warrantied — 5 minimal takes</h1>
+  <p class="doc__sub">Same four proofs (System X, Legend PPF, SunTek, Best Detailer), stripped back. Each strip sits right under the PPF hero. Reference a number in chat (1a–1e) and I'll drop it into the page.</p>
+
+  <!-- V1 -->
+  <div class="opt">
+    <div class="opt__bar"><span class="opt__badge">1a</span><span class="opt__name">Inline pill row</span><span class="opt__note">Reviews left, logos right. One slim line.</span></div>
+    <div class="stage">
+      <div class="v1">
+        <div class="v1__rev"><span class="starrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><span class="rev"><b>5.0</b> · 299+ Google reviews</span></div>
+        <div class="v1__logos">
+          <span class="pill"><img src="assets/img/logo-systemx.png" alt="System X" /></span>
+          <span class="pill"><img src="assets/img/logo-legend-ppf.png" alt="Legend PPF" /></span>
+          <span class="pill"><img src="assets/img/logo-suntek.png" alt="SunTek" /></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- V2 -->
+  <div class="opt">
+    <div class="opt__bar"><span class="opt__badge">1b</span><span class="opt__name">Light band</span><span class="opt__note">White strip, logos in full color. Clean contrast against the dark page.</span></div>
+    <div class="stage">
+      <div class="v2">
+        <div class="v2__head">
+          <span class="lbl">Trusted &amp; warrantied</span>
+          <span class="v2__rev"><span class="starrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><b>5.0</b> · 299+ Google reviews</span>
+        </div>
+        <div class="v2__logos">
+          <img class="tall" src="assets/img/logo-systemx.png" alt="System X" />
+          <img class="tall" src="assets/img/logo-legend-ppf.png" alt="Legend PPF" />
+          <img src="assets/img/logo-suntek.png" alt="SunTek" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- V3 -->
+  <div class="opt">
+    <div class="opt__bar"><span class="opt__badge">1c</span><span class="opt__name">Centered &amp; divided</span><span class="opt__note">Label on top, logos in a hairline-divided row with tiny captions.</span></div>
+    <div class="stage">
+      <div class="v3">
+        <div class="v3__head"><span class="lbl">Trusted &amp; warrantied</span><span class="starrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span></div>
+        <div class="v3__logos">
+          <div class="v3__cell"><span class="pill"><img src="assets/img/logo-systemx.png" alt="System X" /></span><span class="v3__cap">Certified<br />System X</span></div>
+          <div class="v3__cell"><span class="pill"><img src="assets/img/logo-legend-ppf.png" alt="Legend PPF" /></span><span class="v3__cap">Certified<br />Legend PPF</span></div>
+          <div class="v3__cell"><span class="pill"><img src="assets/img/logo-suntek.png" alt="SunTek" /></span><span class="v3__cap">SunTek<br />authorized</span></div>
+          <div class="v3__cell"><img src="assets/award-best-detailer.png" alt="Best Detailer" style="height:46px;width:auto" /><span class="v3__cap">Best Detailer<br />2024 &amp; 2025</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- V4 -->
+  <div class="opt">
+    <div class="opt__bar"><span class="opt__badge">1d</span><span class="opt__name">Airy 4-up</span><span class="opt__note">Four even columns, generous whitespace, captions below.</span></div>
+    <div class="stage">
+      <div class="v4__head"><span class="lbl">Trusted &amp; warrantied</span><span class="rev"><b style="color:var(--white);font-weight:800">5.0</b> · 299+ Google reviews</span></div>
+      <div class="v4__grid">
+        <div class="v4__cell"><span class="pill"><img src="assets/img/logo-systemx.png" alt="System X" /></span><span class="v4__cap">Certified System X installers</span></div>
+        <div class="v4__cell"><span class="pill"><img src="assets/img/logo-legend-ppf.png" alt="Legend PPF" /></span><span class="v4__cap">Certified Legend PPF installers</span></div>
+        <div class="v4__cell"><span class="pill"><img src="assets/img/logo-suntek.png" alt="SunTek" /></span><span class="v4__cap">SunTek authorized</span></div>
+        <div class="v4__cell"><span class="pill" style="background:var(--surface);border-color:var(--line-strong)"><img src="assets/award-best-detailer.png" alt="Best Detailer" style="max-height:56px" /></span><span class="v4__cap">Best Detailer · 2024 &amp; 2025</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- V5 -->
+  <div class="opt">
+    <div class="opt__bar"><span class="opt__badge">1e</span><span class="opt__name">Statement left / logos right</span><span class="opt__note">Bold headline anchors it; logos read as "as certified by".</span></div>
+    <div class="stage">
+      <div class="v5">
+        <div class="v5__left">
+          <h4>Trusted &amp; warrantied</h4>
+          <span class="v5__rev"><span class="starrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> <b>5.0</b> · 299+ reviews</span>
+        </div>
+        <div class="v5__logos">
+          <span class="pill"><img src="assets/img/logo-systemx.png" alt="System X" /></span>
+          <span class="pill"><img src="assets/img/logo-legend-ppf.png" alt="Legend PPF" /></span>
+          <span class="pill"><img src="assets/img/logo-suntek.png" alt="SunTek" /></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What We Stand For — 10 Design Ideas | Detail Tech</title>
+<meta name="design_doc_mode" content="canvas" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="sections.css" />
+<template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#0A0A0A"/><text x="600" y="380" text-anchor="middle" font-family="Arial" font-size="70" font-weight="800" fill="#00ABDF">STAND FOR</text><text x="600" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#EAECEE">10 ideas</text></svg>
+</template>
+<style>
+  body { background: #070809; }
+  .doc { max-width: 1180px; margin: 0 auto; padding: clamp(28px,5vw,56px) var(--gutter) 100px; }
+  .doc__title { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -1px; font-size: clamp(1.7rem,3.6vw,2.5rem); }
+  .doc__sub { color: var(--muted); margin-top: 10px; max-width: 66ch; line-height: 1.7; }
+  .opt { margin-top: clamp(34px,4.5vw,60px); }
+  .opt__bar { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .opt__badge { font-family: var(--ff-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #03171d; background: var(--blue); padding: 5px 11px; border-radius: 100px; }
+  .opt__name { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.5px; font-size: 1.05rem; }
+  .opt__note { color: var(--muted-2); font-size: 0.84rem; }
+  .stage { padding: clamp(24px,3.5vw,46px) 0; border-top: 1px solid var(--line); }
+  h4.eh { font-family: var(--ff-mono); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 18px; }
+
+  /* 1a — Editorial numbered rows, hairline dividers */
+  .v1 { border-top: 1px solid var(--line-strong); }
+  .v1__row { display: grid; grid-template-columns: 120px 1fr; gap: clamp(20px,4vw,60px); align-items: baseline; padding: clamp(22px,3vw,34px) 0; border-bottom: 1px solid var(--line-strong); }
+  .v1__n { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: clamp(2.4rem,4vw,3.4rem); color: var(--blue); line-height: 0.8; }
+  .v1__row h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.4rem,2.2vw,1.9rem); letter-spacing: -1px; }
+  .v1__row p { color: var(--muted); margin-top: 10px; max-width: 60ch; line-height: 1.65; }
+  @media (max-width:640px){ .v1__row { grid-template-columns: 1fr; gap: 6px; } }
+
+  /* 1b — Oversized ghost numbers behind text */
+  .v2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px,5vw,72px) clamp(40px,6vw,90px); }
+  .v2__item { position: relative; padding-top: 26px; }
+  .v2__ghost { position: absolute; top: -34px; left: -8px; font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: clamp(5rem,9vw,7.5rem); color: rgba(255,255,255,0.05); line-height: 1; z-index: 0; pointer-events: none; }
+  .v2__item h3 { position: relative; z-index: 1; font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.4rem,2.2vw,1.9rem); letter-spacing: -1px; }
+  .v2__item p { position: relative; z-index: 1; color: var(--muted); margin-top: 12px; line-height: 1.65; }
+  @media (max-width:640px){ .v2 { grid-template-columns: 1fr; } }
+
+  /* 1c — Horizontal stepper with connecting line */
+  .v3 { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(16px,2.5vw,30px); }
+  .v3__item { position: relative; padding-top: 34px; }
+  .v3__line { position: absolute; top: 11px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--line-strong), var(--line-strong)); }
+  .v3__dot { position: absolute; top: 4px; left: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 14px var(--blue-glow); }
+  .v3__item h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.1rem,1.6vw,1.4rem); letter-spacing: -0.5px; }
+  .v3__item p { color: var(--muted); margin-top: 10px; font-size: 0.92rem; line-height: 1.6; }
+  @media (max-width:760px){ .v3 { grid-template-columns: 1fr 1fr; row-gap: 30px; } }
+
+  /* 1d — Left sticky index rail */
+  .v4 { display: grid; grid-template-columns: 260px 1fr; gap: clamp(28px,5vw,70px); }
+  .v4__rail { display: flex; flex-direction: column; gap: 10px; }
+  .v4__tab { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 1.05rem; letter-spacing: -0.5px; color: var(--muted-2); padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; gap: 12px; }
+  .v4__tab:first-child { color: var(--white); }
+  .v4__tab span { color: var(--blue); font-size: 0.8rem; }
+  .v4__body h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.8rem,3vw,2.6rem); letter-spacing: -1.5px; }
+  .v4__body p { color: var(--muted); margin-top: 16px; max-width: 52ch; line-height: 1.7; font-size: 1.05rem; }
+  .v4__body .muted { color: var(--muted-2); font-size: 0.9rem; margin-top: 22px; }
+  @media (max-width:760px){ .v4 { grid-template-columns: 1fr; } }
+
+  /* 1e — Manifesto: giant statements stacked */
+  .v5__line { padding: clamp(14px,2vw,22px) 0; border-bottom: 1px solid var(--line); display: flex; align-items: baseline; gap: 18px; }
+  .v5__line b { font-family: var(--ff-mono); font-size: 0.8rem; color: var(--blue); flex-shrink: 0; }
+  .v5__line h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.5rem,3.4vw,2.8rem); letter-spacing: -1.5px; line-height: 1.05; }
+  .v5__line h3 small { display: block; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1px var(--muted-2); font-size: inherit; }
+  .v5__line p { color: var(--muted); font-size: 0.92rem; max-width: 30ch; line-height: 1.55; margin-left: auto; text-align: right; }
+  @media (max-width:760px){ .v5__line { flex-wrap: wrap; } .v5__line p { text-align: left; margin-left: 0; } }
+
+  /* 1f — Inline icon rows, no background */
+  .v6 { display: flex; flex-direction: column; gap: 0; }
+  .v6__row { display: grid; grid-template-columns: 54px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .v6__ico { width: 54px; height: 54px; border-radius: 50%; border: 1px solid rgba(0,171,223,0.4); display: grid; place-items: center; color: var(--blue); }
+  .v6__ico svg { width: 24px; height: 24px; }
+  .v6__row h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.3rem,2vw,1.7rem); letter-spacing: -1px; }
+  .v6__row p { color: var(--muted); margin-top: 8px; line-height: 1.65; max-width: 62ch; }
+
+  /* 1g — Two-column split: label left, body right, big rule */
+  .v7__row { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(20px,4vw,56px); padding: clamp(20px,2.6vw,30px) 0; border-top: 1px solid var(--line-strong); }
+  .v7__row:last-child { border-bottom: 1px solid var(--line-strong); }
+  .v7__k { display: flex; align-items: center; gap: 14px; }
+  .v7__k span { font-family: var(--ff-mono); font-size: 0.8rem; color: var(--blue); }
+  .v7__k h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.3rem,2vw,1.8rem); letter-spacing: -1px; }
+  .v7__row p { color: var(--muted); line-height: 1.7; align-self: center; }
+  @media (max-width:640px){ .v7__row { grid-template-columns: 1fr; gap: 8px; } }
+
+  /* 1h — Underline-reveal headings grid */
+  .v8 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,3.5vw,44px); }
+  .v8__item { padding-bottom: 18px; border-bottom: 2px solid var(--line-strong); transition: border-color .3s var(--ease); }
+  .v8__item:hover { border-color: var(--blue); }
+  .v8__item h3 { display: flex; align-items: baseline; gap: 12px; font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.5rem,2.4vw,2.1rem); letter-spacing: -1px; }
+  .v8__item h3 i { font-family: var(--ff-mono); font-style: normal; font-size: 0.8rem; color: var(--blue); font-weight: 700; }
+  .v8__item p { color: var(--muted); margin-top: 12px; line-height: 1.65; }
+  @media (max-width:640px){ .v8 { grid-template-columns: 1fr; } }
+
+  /* 1i — Marquee ticker of principles + detail row */
+  .v9__ticker { overflow: hidden; border-block: 1px solid var(--line-strong); padding: 16px 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .v9__track { display: flex; gap: 34px; white-space: nowrap; animation: v9scroll 22s linear infinite; width: max-content; }
+  .v9__track span { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.6rem,2.6vw,2.3rem); letter-spacing: -1px; color: var(--white); display: inline-flex; align-items: center; gap: 34px; }
+  .v9__track span::after { content: "•"; color: var(--blue); }
+  @keyframes v9scroll { to { transform: translateX(-50%); } }
+  .v9__grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(14px,2vw,26px); margin-top: 26px; }
+  .v9__grid p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+  .v9__grid b { display: block; color: var(--blue); font-family: var(--ff-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  @media (max-width:760px){ .v9__grid { grid-template-columns: 1fr 1fr; row-gap: 22px; } }
+
+  /* 1j — Big index + quote-style statements alternating */
+  .v10__row { display: flex; align-items: flex-start; gap: clamp(20px,4vw,50px); padding: clamp(20px,3vw,34px) 0; }
+  .v10__row + .v10__row { border-top: 1px solid var(--line); }
+  .v10__row:nth-child(even) { flex-direction: row-reverse; text-align: right; }
+  .v10__n { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: clamp(3rem,6vw,5rem); line-height: 0.8; -webkit-text-fill-color: transparent; -webkit-text-stroke: 1.5px var(--blue); flex-shrink: 0; }
+  .v10__row h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.4rem,2.4vw,2rem); letter-spacing: -1px; }
+  .v10__row p { color: var(--muted); margin-top: 10px; max-width: 54ch; line-height: 1.65; display: inline-block; }
+  @media (max-width:640px){ .v10__row, .v10__row:nth-child(even){ flex-direction: row; text-align: left; gap: 16px; } }
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1 class="doc__title">"What we stand for" — 10 non-box ideas</h1>
+  <p class="doc__sub">Same four principles, ten ways to present them without card boxes: editorial rows, big numerals, steppers, index rails, manifesto type, and more. All on-brand (dark, electric-blue accent, Outfit display italic). Tell me a number (1a–1j).</p>
+
+  <!-- 1a -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1a</span><span class="opt__name">Editorial rows</span><span class="opt__note">Numbered rows split by hairlines. Calm, magazine-like.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for · How we do business</h4>
+    <div class="v1">
+      <div class="v1__row"><div class="v1__n">01</div><div><h3>Straight answers</h3><p>We explain what your vehicle actually needs, and what it doesn't. No pressure, no upsell games.</p></div></div>
+      <div class="v1__row"><div class="v1__n">02</div><div><h3>Real quality</h3><p>From how the shop looks to how the work turns out, everything is held to one standard. We stand behind what we do.</p></div></div>
+      <div class="v1__row"><div class="v1__n">03</div><div><h3>Built on relationships</h3><p>We're not a one-and-done shop. Most of our work comes from repeat customers and referrals, and we want to earn yours.</p></div></div>
+      <div class="v1__row"><div class="v1__n">04</div><div><h3>Every vehicle matters</h3><p>Daily drivers, weekend cars, exotics, work trucks. We treat every car like it's worth protecting, because it is.</p></div></div>
+    </div>
+  </div></div>
+
+  <!-- 1b -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1b</span><span class="opt__name">Ghost numerals</span><span class="opt__note">Oversized faint numbers behind each statement. Bold, editorial.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v2">
+      <div class="v2__item"><span class="v2__ghost">01</span><h3>Straight answers</h3><p>We explain what your vehicle actually needs, and what it doesn't. No pressure, no upsell games.</p></div>
+      <div class="v2__item"><span class="v2__ghost">02</span><h3>Real quality</h3><p>Everything is held to one standard, from how the shop looks to how the work turns out. We stand behind it.</p></div>
+      <div class="v2__item"><span class="v2__ghost">03</span><h3>Built on relationships</h3><p>Most of our work comes from repeat customers and referrals, and we want to earn yours for the long run.</p></div>
+      <div class="v2__item"><span class="v2__ghost">04</span><h3>Every vehicle matters</h3><p>Daily drivers, weekend cars, exotics, work trucks. We treat every car like it's worth protecting.</p></div>
+    </div>
+  </div></div>
+
+  <!-- 1c -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1c</span><span class="opt__name">Stepper line</span><span class="opt__note">Four points on a connecting line with dots. Reads as a process.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v3">
+      <div class="v3__item"><div class="v3__line"></div><div class="v3__dot"></div><h3>Straight answers</h3><p>What your vehicle actually needs, and what it doesn't. No upsell games.</p></div>
+      <div class="v3__item"><div class="v3__line"></div><div class="v3__dot"></div><h3>Real quality</h3><p>One standard, start to finish. We stand behind what we do.</p></div>
+      <div class="v3__item"><div class="v3__line"></div><div class="v3__dot"></div><h3>Built on relationships</h3><p>Most of our work is repeat customers and referrals.</p></div>
+      <div class="v3__item"><div class="v3__line"></div><div class="v3__dot"></div><h3>Every vehicle matters</h3><p>Daily drivers to exotics, treated like they're worth protecting.</p></div>
+    </div>
+  </div></div>
+
+  <!-- 1d -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1d</span><span class="opt__name">Index rail</span><span class="opt__note">List of principles left, one expanded right. Feature-first.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v4">
+      <div class="v4__rail">
+        <div class="v4__tab"><span>01</span> Straight answers</div>
+        <div class="v4__tab"><span>02</span> Real quality</div>
+        <div class="v4__tab"><span>03</span> Built on relationships</div>
+        <div class="v4__tab"><span>04</span> Every vehicle matters</div>
+      </div>
+      <div class="v4__body">
+        <h3>Straight answers.</h3>
+        <p>We explain what your vehicle actually needs, and what it doesn't. No pressure, no upsell games, just an honest recommendation from the people doing the work.</p>
+        <p class="muted">Real quality · Built on relationships · Every vehicle matters — the rest of what we live by.</p>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- 1e -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1e</span><span class="opt__name">Manifesto type</span><span class="opt__note">Giant outline/solid statements stacked. Loud and confident.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v5">
+      <div class="v5__line"><b>01</b><h3>Straight answers.</h3><p>What it needs, what it doesn't. No games.</p></div>
+      <div class="v5__line"><b>02</b><h3><small>Real quality.</small></h3><p>One standard, and we stand behind it.</p></div>
+      <div class="v5__line"><b>03</b><h3>Built on relationships.</h3><p>Repeat customers and referrals run this shop.</p></div>
+      <div class="v5__line"><b>04</b><h3><small>Every vehicle matters.</small></h3><p>Daily drivers to exotics, all worth protecting.</p></div>
+    </div>
+  </div></div>
+
+  <!-- 1f -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1f</span><span class="opt__name">Icon rows</span><span class="opt__note">Circular outline icons on open rows. Warm, no card fill.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v6">
+      <div class="v6__row"><span class="v6__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h8M8 8h8M8 16h5"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg></span><div><h3>Straight answers</h3><p>We explain what your vehicle actually needs, and what it doesn't. No pressure, no upsell games.</p></div></div>
+      <div class="v6__row"><span class="v6__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h3>Real quality</h3><p>From how the shop looks to how the work turns out, everything is held to one standard. We stand behind what we do.</p></div></div>
+      <div class="v6__row"><span class="v6__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span><div><h3>Built on relationships</h3><p>We're not a one-and-done shop. Most of our work comes from repeat customers and referrals.</p></div></div>
+      <div class="v6__row"><span class="v6__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6 17l1.5-5h9L18 17M7 12l1-4h8l1 4"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg></span><div><h3>Every vehicle matters</h3><p>Daily drivers, weekend cars, exotics, work trucks. We treat every car like it's worth protecting, because it is.</p></div></div>
+    </div>
+  </div></div>
+
+  <!-- 1g -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1g</span><span class="opt__name">Label / body split</span><span class="opt__note">Principle left, explanation right, ruled rows. Very legible.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v7">
+      <div class="v7__row"><div class="v7__k"><span>01</span><h3>Straight answers</h3></div><p>We explain what your vehicle actually needs, and what it doesn't. No pressure, no upsell games.</p></div>
+      <div class="v7__row"><div class="v7__k"><span>02</span><h3>Real quality</h3></div><p>From how the shop looks to how the work turns out, everything is held to one standard. We stand behind what we do.</p></div>
+      <div class="v7__row"><div class="v7__k"><span>03</span><h3>Built on relationships</h3></div><p>We're not a one-and-done shop. Most of our work comes from repeat customers and referrals, and we want to earn yours.</p></div>
+      <div class="v7__row"><div class="v7__k"><span>04</span><h3>Every vehicle matters</h3></div><p>Daily drivers, weekend cars, exotics, work trucks. We treat every car like it's worth protecting, because it is.</p></div>
+    </div>
+  </div></div>
+
+  <!-- 1h -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1h</span><span class="opt__name">Underline reveal</span><span class="opt__note">Headings on thick underlines that light up blue on hover.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v8">
+      <div class="v8__item"><h3><i>01</i>Straight answers</h3><p>We explain what your vehicle actually needs, and what it doesn't. No pressure, no upsell games.</p></div>
+      <div class="v8__item"><h3><i>02</i>Real quality</h3><p>Everything is held to one standard, from how the shop looks to how the work turns out.</p></div>
+      <div class="v8__item"><h3><i>03</i>Built on relationships</h3><p>Most of our work comes from repeat customers and referrals, and we want to earn yours.</p></div>
+      <div class="v8__item"><h3><i>04</i>Every vehicle matters</h3><p>Daily drivers, weekend cars, exotics, work trucks. Every car is worth protecting.</p></div>
+    </div>
+  </div></div>
+
+  <!-- 1i -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1i</span><span class="opt__name">Ticker + detail</span><span class="opt__note">Scrolling principle marquee over a light detail row. Energetic.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v9">
+      <div class="v9__ticker"><div class="v9__track"><span>Straight answers</span><span>Real quality</span><span>Built on relationships</span><span>Every vehicle matters</span><span>Straight answers</span><span>Real quality</span><span>Built on relationships</span><span>Every vehicle matters</span></div></div>
+      <div class="v9__grid">
+        <p><b>01 · Straight answers</b>What it needs, what it doesn't. No upsell games.</p>
+        <p><b>02 · Real quality</b>One standard, and we stand behind it.</p>
+        <p><b>03 · Relationships</b>Repeat customers and referrals run this shop.</p>
+        <p><b>04 · Every vehicle</b>Daily drivers to exotics, all worth protecting.</p>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- 1j -->
+  <div class="opt"><div class="opt__bar"><span class="opt__badge">1j</span><span class="opt__name">Alternating index</span><span class="opt__note">Big outlined numerals, rows alternate left/right. Dynamic.</span></div>
+  <div class="stage"><h4 class="eh">What we stand for</h4>
+    <div class="v10">
+      <div class="v10__row"><div class="v10__n">01</div><div><h3>Straight answers</h3><p>We explain what your vehicle actually needs, and what it doesn't. No pressure, no upsell games.</p></div></div>
+      <div class="v10__row"><div class="v10__n">02</div><div><h3>Real quality</h3><p>From how the shop looks to how the work turns out, everything is held to one standard.</p></div></div>
+      <div class="v10__row"><div class="v10__n">03</div><div><h3>Built on relationships</h3><p>Most of our work comes from repeat customers and referrals, and we want to earn yours.</p></div></div>
+      <div class="v10__row"><div class="v10__n">04</div><div><h3>Every vehicle matters</h3><p>Daily drivers, weekend cars, exotics, work trucks. Every car is worth protecting.</p></div></div>
+    </div>
+  </div></div>
+
+</div>
+</body>
+</html>

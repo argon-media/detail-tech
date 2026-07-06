@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mobile Detailing in Crystal Lake &amp; the NW Suburbs | Detail Tech</title>
+<meta name="description" content="Mobile detailing that comes to you across the NW Chicago suburbs, Lake and Cook County. Interior and exterior detailing at your home or office. Get a free quote." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/favicon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mobile Detailing in Crystal Lake &amp; the NW Suburbs | Detail Tech" />
+<meta property="og:description" content="Mobile detailing that comes to you across the NW Chicago suburbs, Lake and Cook County. Interior and exterior detailing at your home or office. Get a free quote." />
+<meta property="og:image" content="assets/og-image.jpg" />
+<meta property="og:url" content="https://www.thedetailtech.com/mobile-detailing" />
+<meta property="og:site_name" content="Detail Tech" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Mobile Detailing in Crystal Lake &amp; the NW Suburbs | Detail Tech" />
+<meta name="twitter:description" content="Mobile detailing that comes to you across the NW Chicago suburbs, Lake and Cook County. Interior and exterior detailing at your home or office. Get a free quote." />
+<meta name="twitter:image" content="assets/og-image.jpg" />
+<template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0A0A0A"/>
+    <text x="600" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="88" font-weight="800" letter-spacing="2" fill="#00ABDF">MOBILE</text>
+    <rect x="500" y="500" width="200" height="6" rx="3" fill="#00ABDF"/>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="sections.css" />
+<style>
+/* ============ Service page-specific styles ============ */
+
+/* --- Hero (image) --- */
+.ppf-hero { position: relative; margin-top: calc(-1 * var(--header-h)); min-height: clamp(560px, 82vh, 860px); display: flex; align-items: flex-end; overflow: hidden; }
+.ppf-hero__media { position: absolute; inset: 0; z-index: 0; }
+.ppf-hero__media img, .ppf-hero__media video { width: 100%; height: 100%; object-fit: cover; }
+.ppf-hero__scrim { position: absolute; inset: 0; z-index: 1; background:
+    linear-gradient(180deg, rgba(8,9,10,0.6) 0%, rgba(8,9,10,0.25) 30%, rgba(8,9,10,0.78) 76%, var(--bg) 100%),
+    linear-gradient(90deg, rgba(8,9,10,0.88) 0%, rgba(8,9,10,0.35) 55%, transparent 100%); }
+.ppf-hero__inner { position: relative; z-index: 2; width: 100%; padding-bottom: clamp(44px, 6vw, 80px); padding-top: calc(var(--header-h) + 60px); }
+.ppf-hero h1 { margin: 20px 0 0; font-size: clamp(2.5rem, 5.6vw, 4.6rem); }
+.ppf-hero h1 .accent { color: var(--blue); text-shadow: 0 0 15px rgba(0,171,223,0.35); }
+.ppf-hero__sub { margin-top: 22px; font-size: clamp(1.02rem, 1.5vw, 1.24rem); color: var(--text); max-width: 58ch; }
+.ppf-hero__copy { max-width: 720px; }
+.ppf-hero__layout { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: clamp(28px, 5vw, 60px); align-items: end; }
+.ppf-cred { align-self: end; width: 320px; }
+.ppf-cred__list { display: flex; flex-direction: column; gap: 13px; margin-top: 16px; }
+.ppf-cred__list li { display: flex; align-items: center; gap: 12px; }
+.ppf-cred__ico { width: 38px; height: 38px; flex-shrink: 0; border-radius: 9px; display: grid; place-items: center; background: rgba(0,171,223,0.12); border: 1px solid rgba(0,171,223,0.28); color: var(--blue); }
+.ppf-cred__ico svg { width: 19px; height: 19px; }
+.ppf-cred__list b { display: block; font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 0.9rem; letter-spacing: -0.01em; color: var(--white); line-height: 1.05; }
+.ppf-cred__list li > div > span { display: block; font-family: var(--ff-mono); font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+@media (max-width: 900px) { .ppf-hero__layout { grid-template-columns: 1fr; align-items: start; } .ppf-hero__copy { max-width: 100%; } .ppf-cred { width: 100%; max-width: 380px; } }
+
+/* --- What you get --- */
+.whatis-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.whatis-grid p { color: var(--muted); font-size: clamp(1rem, 1.35vw, 1.14rem); line-height: 1.75; margin-top: 22px; }
+.whatis-figure { position: relative; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-strong); }
+.whatis-figure img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4/4.6; }
+.whatis-figure__tag { position: absolute; left: 14px; bottom: 14px; font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: rgba(8,9,10,0.65); border: 1px solid var(--line-strong); padding: 6px 12px; border-radius: 100px; backdrop-filter: blur(6px); }
+@media (max-width: 860px) { .whatis-grid { grid-template-columns: 1fr; } .whatis-figure img { aspect-ratio: 4/3; } }
+
+/* --- Confirm placeholder callout --- */
+.confirm-note { display: flex; gap: 12px; align-items: flex-start; margin-top: 26px; padding: 16px 18px; border: 1px dashed var(--line-strong); border-radius: var(--r); background: rgba(255,255,255,0.02); }
+.confirm-note svg { width: 18px; height: 18px; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+.confirm-note p { margin: 0; color: var(--muted); font-family: var(--ff-mono); font-size: 0.78rem; letter-spacing: 0.02em; line-height: 1.7; }
+.confirm-list { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
+.confirm-list li { display: flex; align-items: center; gap: 14px; font-size: clamp(1rem, 1.3vw, 1.12rem); color: var(--muted); font-family: var(--ff-mono); letter-spacing: 0.01em; }
+.confirm-list svg { width: 20px; height: 20px; color: var(--muted-2); flex-shrink: 0; }
+
+/* --- Packages (quote-only) --- */
+.mobile-quote { text-align: center; max-width: 720px; margin-inline: auto; margin-top: 44px; padding: clamp(30px, 4.5vw, 56px); background: var(--surface); border: 1px solid var(--line); border-radius: 28px; position: relative; overflow: hidden; }
+.mobile-quote::before { content: ""; position: absolute; right: -10%; top: -30%; width: 420px; height: 420px; background: radial-gradient(circle, var(--blue-glow), transparent 65%); opacity: 0.3; pointer-events: none; }
+.mobile-quote h3 { position: relative; font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: -1px; }
+.mobile-quote p { position: relative; color: var(--muted); font-size: 1rem; line-height: 1.7; margin-top: 16px; max-width: 52ch; margin-inline: auto; }
+.mobile-quote .hero__actions { position: relative; justify-content: center; margin-top: 28px; }
+.pkg-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 900px) { .pkg-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; } }
+.pkg-card { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(24px, 2.4vw, 32px); transition: border-color .3s var(--ease), transform .3s var(--ease); }
+.pkg-card:hover { border-color: rgba(0,171,223,0.45); transform: translateY(-4px); }
+.pkg-card .tier { display: inline-flex; align-items: center; gap: 9px; font-family: var(--ff-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.pkg-card .tier::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; box-shadow: 0 0 12px currentColor; }
+.pkg-card h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: 1; letter-spacing: -1.2px; margin-top: 14px; }
+.pkg-card__desc { color: var(--muted); font-size: 0.96rem; line-height: 1.55; margin-top: 12px; }
+.pkg-card__price { display: flex; align-items: baseline; gap: 8px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+.pkg-card__price b { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: clamp(1.6rem, 2.3vw, 2rem); color: var(--blue); line-height: 1; }
+.pkg-card__price span { font-family: var(--ff-mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.pkg-card__time { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.pkg-card__time svg { width: 15px; height: 15px; color: var(--blue); flex-shrink: 0; }
+.pkg-card__list { display: flex; flex-direction: column; gap: 11px; margin-top: 18px; }
+.pkg-card__list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: var(--text); line-height: 1.45; }
+.pkg-card__list svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--blue); margin-top: 1px; }
+.pkg-card__actions { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 24px; }
+.pkg-card__actions .btn { width: 100%; }
+.prow-rows { margin-top: 44px; display: flex; flex-direction: column; gap: clamp(40px, 6vw, 84px); }
+.prow { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
+.prow__media { position: relative; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-strong); aspect-ratio: 16/11; background: linear-gradient(180deg, #16181b, #0f1113); }
+.prow__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s var(--ease); }
+.prow:hover .prow__media img { transform: scale(1.045); }
+.prow:nth-child(even) .prow__media { order: 2; }
+.prow .tier { display: inline-flex; align-items: center; gap: 9px; font-family: var(--ff-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.prow .tier::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: currentColor; box-shadow: 0 0 12px currentColor; }
+.prow h3 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(1.6rem, 2.6vw, 2.4rem); line-height: 1; letter-spacing: -1.5px; margin-top: 14px; }
+.prow__desc { color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.65; margin-top: 14px; }
+.prow__price { display: flex; align-items: baseline; gap: 9px; margin-top: 18px; }
+.prow__price b { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: clamp(1.8rem, 2.6vw, 2.4rem); color: var(--blue); line-height: 1; }
+.prow__price span { font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.prow__time { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.prow__time svg { width: 16px; height: 16px; color: var(--blue); flex-shrink: 0; }
+.prow__list { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 22px; margin-top: 20px; }
+.prow__list li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.94rem; color: var(--text); line-height: 1.4; }
+.prow__list svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--blue); margin-top: 1px; }
+.prow__actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 820px) { .prow { grid-template-columns: 1fr; gap: 22px; } .prow:nth-child(even) .prow__media { order: 0; } .prow__list { grid-template-columns: 1fr; } }
+
+/* --- Service area --- */
+.area-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+.area-grid > div > p { color: var(--muted); font-size: clamp(1rem, 1.35vw, 1.14rem); line-height: 1.75; margin-top: 22px; }
+.area-map { border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-strong); aspect-ratio: 4/3.2; }
+.area-map iframe { width: 100%; height: 100%; border: 0; }
+@media (max-width: 860px) { .area-grid { grid-template-columns: 1fr; } }
+
+/* --- Final CTA --- */
+.ppf-cta { text-align: center; position: relative; overflow: hidden; background:
+    radial-gradient(70% 120% at 50% 0%, rgba(0,171,223,0.14), transparent 60%), var(--bg);
+  border-top: 1px solid var(--line); }
+.ppf-cta .eyebrow { justify-content: center; }
+.ppf-cta .lead { margin: 20px auto 0; }
+.ppf-cta .hero__actions { justify-content: center; }
+
+/* --- Certifications strip --- */
+.trust-strip { border-bottom: 1px solid var(--line); }
+.tstrip__head { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; margin-bottom: clamp(30px, 4vw, 46px); }
+.tstrip__stars { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; color: var(--text); font-size: 0.98rem; }
+.tstrip__stars b { color: var(--white); font-weight: 800; }
+.tstrip__starrow { display: inline-flex; gap: 2px; color: #FFC53D; }
+.tstrip__starrow svg { width: 19px; height: 19px; }
+.tstrip__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 22px); }
+.tcert { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+.tcert__logo { width: 100%; height: 84px; display: grid; place-items: center; padding: 16px 20px; background: #fff; border: 1px solid var(--line-strong); border-radius: 14px; }
+.tcert__logo img { height: 48px; width: auto; max-width: 100%; object-fit: contain; display: block; }
+.tcert__logo--award { background: var(--surface); padding: 7px 16px; }
+.tcert__logo--award img { height: 70px; }
+.tcert__cap { font-family: var(--ff-mono); font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+@media (max-width: 760px) { .tstrip__grid { grid-template-columns: repeat(2, 1fr); gap: 18px 16px; } .tcert__logo { height: 76px; padding: 14px 16px; } .tcert__logo img { height: 40px; } .tcert__logo--award { padding: 5px 14px; } .tcert__logo--award img { height: 64px; } }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP UTILITY BAR ============ -->
+<div class="topbar">
+  <div class="wrap topbar__inner">
+    <span class="topbar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://maps.google.com/?q=3305+State+Rte+31+Suite+2+Crystal+Lake+IL+60012" target="_blank" rel="noopener">3305 State Rte. 31, Crystal Lake, IL</a></span>
+    <span class="topbar__divider topbar__item--hide"></span>
+    <span class="topbar__item topbar__item--hide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat · 8AM–6PM</span>
+    <span class="topbar__spacer"></span>
+    <span class="topbar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><a href="tel:+12248033305">(224) 803-3305</a></span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <nav class="nav" aria-label="Primary">
+      <div class="nav__dd">
+        <button class="nav__trigger" aria-haspopup="true" aria-expanded="false">Services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="nav__menu">
+          <a href="ppf.html">Paint Protection Film</a>
+          <a href="wrap.html">Vinyl Wrap</a>
+          <a href="fleet.html">Fleet &amp; Commercial Graphics</a>
+          <a href="tint.html">Window Tint</a>
+          <a href="mobile.html">Mobile Detailing</a>
+          <a href="ceramic.html">Ceramic Coating</a>
+          <a href="correction.html">Paint Correction</a>
+          <a href="auto-detailing.html">Auto Detailing</a>
+          <a href="pdr.html">PDR</a>
+        </div>
+      </div>
+      <a href="tesla.html">Tesla</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="brand" href="index.html" aria-label="Detail Tech home">
+      <img src="assets/logo-dark.png" alt="Detail Tech" />
+      <span class="brand__word"><b>Detail<span>Tech</span></b></span>
+    </a>
+    <div class="header-cta">
+      <a class="btn btn--ghost btn--sm" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Online</a>
+      <a class="btn btn--primary btn--sm" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__top">
+    <a class="brand" href="index.html"><img src="assets/logo-dark.png" alt="Detail Tech" /><span class="brand__word"><b>Detail<span>Tech</span></b></span></a>
+    <button class="mobile-nav__close" id="menuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <ul>
+    <li class="m-label">Services</li>
+    <li class="m-subwrap"><ul class="m-sub">
+      <li><a href="ppf.html">Paint Protection Film</a></li>
+      <li><a href="wrap.html">Vinyl Wrap</a></li>
+      <li><a href="fleet.html">Fleet &amp; Commercial Graphics</a></li>
+      <li><a href="tint.html">Window Tint</a></li>
+      <li><a href="mobile.html">Mobile Detailing</a></li>
+      <li><a href="ceramic.html">Ceramic Coating</a></li>
+      <li><a href="correction.html">Paint Correction</a></li>
+      <li><a href="auto-detailing.html">Auto Detailing</a></li>
+      <li><a href="pdr.html">PDR</a></li>
+    </ul></li>
+    <li><a href="tesla.html">Tesla</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="blog/index.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mobile-nav__foot">
+    <a class="btn btn--primary btn--block" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+    <a class="btn btn--solid-dark btn--block" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Online</a>
+    <a class="btn btn--ghost btn--block" href="tel:+12248033305">Call (224) 803-3305</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="ppf-hero" data-screen-label="Hero">
+  <div class="ppf-hero__media">
+    <img src="assets/img/mobile/bmw-wash.jpg" alt="Detail Tech mobile detailing a blue BMW in a customer's driveway" />
+  </div>
+  <div class="ppf-hero__scrim"></div>
+  <div class="hero__glow"></div>
+  <div class="ppf-hero__inner">
+    <div class="wrap ppf-hero__layout">
+      <div class="ppf-hero__copy">
+        <span class="eyebrow">Mobile Detailing · We Come To You</span>
+        <h1 class="h-xl">The shop,<br /><span class="accent">in your driveway.</span></h1>
+        <p class="ppf-hero__sub">Our mobile detailing brings a full professional setup to your home or office. Interior and exterior, done right, without you ever leaving the driveway. Serving the NW suburbs and beyond.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS STRIP ============ -->
+<section class="section trust-strip" data-screen-label="Certifications">
+  <div class="wrap">
+    <div class="tstrip__head reveal">
+      <span class="eyebrow eyebrow--center">Trusted &amp; warrantied</span>
+      <div class="tstrip__stars">
+        <span class="tstrip__starrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </span>
+        <span><b>5.0</b> from 299+ Google reviews</span>
+      </div>
+    </div>
+    <div class="tstrip__grid">
+      <div class="tcert reveal">
+        <span class="tcert__logo"><img src="assets/img/logo-systemx.png" alt="System X Ceramic Protection" loading="lazy" /></span>
+        <span class="tcert__cap">Certified System X installers</span>
+      </div>
+      <div class="tcert reveal" data-d="1">
+        <span class="tcert__logo"><img src="assets/img/logo-legend-ppf.png" alt="Legend Paint Protection Film" loading="lazy" /></span>
+        <span class="tcert__cap">Certified Legend PPF installers</span>
+      </div>
+      <div class="tcert reveal" data-d="2">
+        <span class="tcert__logo"><img src="assets/img/logo-suntek.png" alt="SunTek" loading="lazy" /></span>
+        <span class="tcert__cap">SunTek authorized</span>
+      </div>
+      <div class="tcert reveal" data-d="3">
+        <span class="tcert__logo tcert__logo--award"><img src="assets/award-best-detailer.png" alt="McHenry County Best Detailer award 2024 and 2025" loading="lazy" /></span>
+        <span class="tcert__cap">Best Detailer · 2024 &amp; 2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ WHAT YOU GET ============ -->
+<section class="section" id="what-you-get" data-screen-label="What You Get">
+  <div class="wrap whatis-grid">
+    <div class="reveal">
+      <span class="eyebrow">What's included</span>
+      <h2 class="h-lg" style="margin-top:18px">A full detail, at your door.</h2>
+      <p>Same care as the shop, brought to you. We arrive with everything needed to detail your vehicle on site, inside and out, so a busy week never gets in the way of a clean car.</p>
+      <ul class="confirm-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)"><path d="M20 6 9 17l-5-5"/></svg>Foam pre-soak and safe 3-bucket hand wash</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)"><path d="M20 6 9 17l-5-5"/></svg>Iron and clay towel decontamination</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)"><path d="M20 6 9 17l-5-5"/></svg>Steam cleaning and full interior wipe down</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)"><path d="M20 6 9 17l-5-5"/></svg>Leather cleaning and conditioning when applicable</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue)"><path d="M20 6 9 17l-5-5"/></svg>Interior and exterior glass, tire dressing, final walk-around</li>
+      </ul>
+      <div class="confirm-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+        <p>Exact inclusions depend on the package you choose below.</p>
+      </div>
+      <div class="hero__actions" style="margin-top:30px">
+        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
+      </div>
+    </div>
+    <figure class="whatis-figure reveal" data-d="1">
+      <img src="assets/img/mobile/corvette-wash.jpg" alt="Blue Corvette getting a mobile foam wash at a customer's home" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section class="section bg-alt hairline-top" id="packages" data-screen-label="Mobile Packages">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin-inline:auto">
+      <span class="eyebrow eyebrow--center">Mobile packages</span>
+      <h2 class="h-lg">Pick your detail.</h2>
+    </div>
+    <p class="lead" style="max-width:78ch;margin:16px auto 0;text-align:center">Three ways to go, each quoted to your vehicle. Heavy contamination, staining, pet hair, odor removal, shampooing, and extraction may need extra treatment based on condition.</p>
+    <div class="prow-rows">
+      <article class="prow reveal">
+        <div class="prow__media"><img src="assets/img/mobile/porsche.jpg" alt="Freshly detailed Porsche 911 in the driveway" loading="lazy" /></div>
+        <div>
+          <span class="tier" style="color:#6FD3E6">Exterior</span>
+          <h3>Mobile Exterior Detail</h3>
+          <p class="prow__desc">A safe, professional exterior clean and decontamination for a cleaner, smoother, glossier finish.</p>
+          <div class="prow__time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About 1 hour 15 minutes</div>
+          <div style="font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);margin-top:24px">What's included</div>
+          <ul class="prow__list" style="grid-template-columns:1fr;gap:10px;margin-top:12px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Wheel wells, wheels, barrels, tires, and brake calipers cleaned</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Foam pre-soak and professional 3-bucket hand wash</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Iron decontamination treatment</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clay towel decontamination for light embedded contaminants</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Door and trunk jamb wipe down</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hand drying with premium microfiber towels</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tire dressing</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Exterior glass cleaning</li>
+          </ul>
+          <p style="color:var(--muted);font-size:0.86rem;line-height:1.6;margin-top:18px"><strong style="color:var(--text);font-weight:700">Additional services available:</strong> Heavy contamination like bug residue, tar, tree sap, adhesive, glue, and paint overspray is not included and can be added as needed.</p>
+          <p style="color:var(--muted);font-size:0.86rem;line-height:1.6;margin-top:12px"><strong style="color:var(--text);font-weight:700">Please note:</strong> Ceramic sealant protection is not included in this package but can be added for enhanced gloss, hydrophobic properties, and long-lasting paint protection.</p>
+          <div class="prow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/Tb8yLt3SimMoWKC0peNw" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+        </div>
+      </article>
+      <article class="prow reveal">
+        <div class="prow__media"><img src="assets/img/mobile/challenger.jpg" alt="Detailed red Dodge Challenger in the garage" loading="lazy" /></div>
+        <div>
+          <span class="tier" style="color:#C7CCD1">Interior</span>
+          <h3>Mobile Interior Detail</h3>
+          <p class="prow__desc">A deep interior clean that refreshes and restores your cabin, using professional-grade products and steam.</p>
+          <div class="prow__time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About 2 hours 30 minutes</div>
+          <div style="font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);margin-top:24px">What's included</div>
+          <ul class="prow__list" style="grid-template-columns:1fr;gap:10px;margin-top:12px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thorough vacuuming of carpets, seats, and floor mats</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Steam cleaning to safely lift dirt, grime, and bacteria</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete wipe down of all interior surfaces, including dash, console, door panels, and trim</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior dressing applied to plastics and vinyl surfaces</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Leather cleaning and conditioning (if applicable)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior glass cleaning for a clear, streak-free finish</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Customer walk-around and final quality inspection</li>
+          </ul>
+          <p style="color:var(--muted);font-size:0.86rem;line-height:1.6;margin-top:18px"><strong style="color:var(--text);font-weight:700">Additional services available:</strong> Heavy staining, carpet shampooing, extraction, excessive pet hair, odor removal, biohazard cleanup, and mold remediation are not included and may require additional treatment based on condition.</p>
+          <div class="prow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/Tb8yLt3SimMoWKC0peNw" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+        </div>
+      </article>
+      <article class="prow reveal">
+        <div class="prow__media"><img src="assets/img/mobile/blazer.jpg" alt="Detailed lifted Chevy Blazer in the driveway" loading="lazy" /></div>
+        <div>
+          <span class="tier" style="color:#00ABDF">Full</span>
+          <h3>Mobile Interior &amp; Exterior Detail</h3>
+          <p class="prow__desc">The complete service, inside and out. Combines our full interior and exterior processes for a refreshed, well-maintained finish.</p>
+          <div class="prow__time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About 3 hours 30 minutes</div>
+          <div style="font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);margin-top:24px">Exterior includes</div>
+          <ul class="prow__list" style="grid-template-columns:1fr;gap:10px;margin-top:12px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Wheel wells, wheels, barrels, tires, and calipers cleaned</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Foam pre-soak and safe 3-bucket hand wash</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Iron and clay towel decontamination</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Door and trunk jamb wipe down</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hand drying, tire dressing, exterior glass</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Final exterior inspection</li>
+          </ul>
+          <div style="font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);margin-top:22px">Interior includes</div>
+          <ul class="prow__list" style="grid-template-columns:1fr;gap:10px;margin-top:12px">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thorough vacuum of carpets, seats, and floor mats</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Steam cleaning to lift dirt, grime, and bacteria</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete wipe down of all interior surfaces</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior dressing for plastics and vinyl</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Leather cleaning and conditioning (if applicable)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior glass cleaning</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Final interior inspection</li>
+          </ul>
+          <p style="color:var(--muted);font-size:0.86rem;line-height:1.6;margin-top:18px"><strong style="color:var(--text);font-weight:700">Additional services available:</strong> Heavy contamination, staining, pet hair, odor removal, shampooing, extraction, biohazard cleanup, mold remediation, tar, sap, and adhesive removal are not included and may require additional treatment based on condition.</p>
+          <div class="prow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/Tb8yLt3SimMoWKC0peNw" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE AREA ============ -->
+<section class="section mobile-sec" id="service-area" data-screen-label="Service Area">
+  <div class="wrap mobile-grid">
+    <div class="mobile-copy reveal">
+      <span class="eyebrow">We come to you</span>
+      <h2 class="h-lg" style="margin-top:16px;margin-bottom:24px">Mobile detailing across the NW suburbs.</h2>
+      <p style="color:#9ba1a8;line-height:1.7">Mobile detailing is here. We bring everything to your driveway, at home or the office, and clean your car inside and out. We cover Crystal Lake, the NW suburbs, and beyond. Same certified team, same quality, and you don't have to leave home.</p>
+      <p style="color:#9ba1a8;line-height:1.7;margin-top:16px">We treat every car like our own, tell you exactly what we're doing, and you can reach us any time you have a question.</p>
+    </div>
+    <div class="mobile-figure reveal" data-d="1">
+      <img src="assets/img/van.jpg" alt="Detail Tech mobile detailing van" loading="lazy" />
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(36px,5vw,56px)">
+    <h3 style="font-family:var(--ff-display);font-weight:800;font-size:1.15rem;text-transform:uppercase;letter-spacing:0.04em;margin:0 0 18px;color:var(--white)">Areas We Serve</h3>
+    <ul class="areas-list">
+      <li>Lakewood</li>
+      <li>Prairie Grove</li>
+      <li>Cary</li>
+      <li>Fox River Grove</li>
+      <li>Island Lake</li>
+      <li>Algonquin</li>
+      <li>McHenry</li>
+      <li>Woodstock</li>
+      <li>Huntley</li>
+      <li>Carpentersville</li>
+      <li>Wauconda</li>
+      <li>North Barrington</li>
+      <li>Barrington Hills</li>
+      <li>Lake Zurich</li>
+      <li>Barrington</li>
+      <li>Pingree Grove</li>
+      <li>Long Grove</li>
+      <li>Kildeer</li>
+      <li>Hawthorn Woods</li>
+      <li>Deer Park</li>
+      <li>Hampshire</li>
+      <li>Elgin</li>
+      <li>South Elgin</li>
+      <li>Libertyville</li>
+      <li>St. Charles</li>
+      <li>Lake Forest</li>
+      <li>Geneva</li>
+    </ul>
+    <p style="color:#9ba1a8;margin-top:18px;font-size:0.95rem">…and many more nearby towns. Not on the list? Just give us a call. We likely cover you too.</p>
+    <div class="mobile-actions" style="margin-top:24px">
+      <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/Tb8yLt3SimMoWKC0peNw" target="_blank" rel="noopener">Book Mobile Detailing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section bg-alt hairline-top" id="process" data-screen-label="How It Works">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="h-lg">Book. We come. Done.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal">
+        <div class="step__n">1</div>
+        <div class="step__rule"></div>
+        <h3>Book Your Spot</h3>
+        <p>Tell us the vehicle, what you want, and where you are.</p>
+      </div>
+      <div class="step reveal" data-d="1">
+        <div class="step__n">2</div>
+        <div class="step__rule"></div>
+        <h3>We Come To You</h3>
+        <p>We arrive at your home or office with the full setup.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <div class="step__n">3</div>
+        <div class="step__rule"></div>
+        <h3>We Detail On Site</h3>
+        <p>Interior, exterior, or both, done right in your driveway.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="step__n">4</div>
+        <div class="step__rule"></div>
+        <h3>You're Done</h3>
+        <p>No drop-off, no waiting room. Just a clean car.</p>
+      </div>
+    </div>
+    <div class="process-cta reveal" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px">
+      <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY DETAIL TECH ============ -->
+<section class="section" id="why" data-screen-label="Why Detail Tech">
+  <div class="wrap certs__grid">
+    <div class="certs__photo reveal"><img src="assets/img/certs-photo.jpg" alt="Dan holding Detail Tech certifications" loading="lazy" /></div>
+    <div class="reveal" data-d="1">
+      <span class="eyebrow" style="margin-bottom:18px">Why Detail Tech</span>
+      <h2 class="h-lg" style="margin:0 0 18px">Credentials you can check.</h2>
+      <ul class="why__list" style="margin-top:26px">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>The same team and standards as our Crystal Lake shop</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Voted Best Detailer in McHenry County, 2024 and 2025</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Licensed and insured</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>299+ five-star Google reviews</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Two owners, one crew</li>
+      </ul>
+      <div class="award-credential">
+        <img src="assets/award-best-detailer.png" alt="McHenry County Awarded Best Detailer 2024 and 2025" />
+        <div>
+          <b>Voted Best Detailer in<br />McHenry County</b>
+          <span>Awarded 2024 &amp; 2025 · Two years running</span>
+        </div>
+      </div>
+      <div class="mobile-actions" style="margin-top:30px">
+        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="tel:+12248033305">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          Call (224) 803-3305
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section bg-alt hairline-top" id="reviews" data-screen-label="Reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Word on the street</span>
+      <h2 class="h-lg">What customers say.</h2>
+      <p class="lead">Real work on real cars. Here's what customers say after working with our Crystal Lake shop.</p>
+    </div>
+
+    <div class="reviews-head reveal">
+      <div class="reviews-head__score">
+        <div class="reviews-head__big">5.0</div>
+        <div class="reviews-head__meta">
+          <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+          <p><span class="text-blue">5.0</span> from 299+ Google reviews</p>
+          <p class="award-inline" style="margin-top:8px;color:var(--text);font-weight:600"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>Voted Best Detailer in McHenry County · 2024 &amp; 2025</p>
+        </div>
+      </div>
+      <div class="reviews-head__g">
+        <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg>
+        Powered by Google
+      </div>
+    </div>
+
+    <div class="reviews-grid" style="margin-top:40px">
+      <article class="greview reveal">
+        <div class="greview__head">
+          <div class="greview__avatar" style="background:#8D6E63">E</div>
+          <div class="greview__who"><b>Erica Kilinski</b><span>4 reviews · 3 photos</span></div>
+          <svg class="greview__g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg>
+        </div>
+        <div class="greview__stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <p class="greview__body">While I was out of town for a work trip, my husband surprised me by getting our family van detailed. For context: I have three young kids, which means my van usually looks like it doubles as a mobile snack pantry and a science experiment. I barely have time to pick up the chunks of food on the floor, vacuuming? That's a luxury hobby for people without small kids.</p>
+      </article>
+
+      <article class="greview reveal" data-d="1">
+        <div class="greview__head">
+          <div class="greview__avatar" style="background:#43A047">M</div>
+          <div class="greview__who"><b>Malgorzata Dulian</b><span>2 reviews · 1 photo</span></div>
+          <svg class="greview__g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg>
+        </div>
+        <div class="greview__stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <p class="greview__body">Thank you, Detail Tech, for the great work. Your mobile car washing service is a fantastic service for everyone, no need to leave the house or waste any time.</p>
+      </article>
+    </div>
+    <div class="reveal" style="margin-top:20px;display:flex;justify-content:center">
+      <a class="btn btn--ghost" href="https://www.google.com/maps/place/Detail+Tech+-+Paint+Protection+Film,+Ceramic+Coating+%26+Window+Tints/@42.2823082,-88.2874516,17z/data=!4m6!3m5!1s0x25846aeb01b4987:0x3f00acc29ce2fcdb!8m2!3d42.2823082!4d-88.2874516!16s%2Fg%2F11jsp_l618" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;margin-right:9px;flex-shrink:0"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg>
+        Read our Google reviews
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;margin-left:8px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" data-screen-label="FAQ">
+  <div class="wrap">
+    <div class="section-head reveal" style="text-align:center;margin-inline:auto">
+      <span class="eyebrow eyebrow--center">Common questions</span>
+      <h2 class="h-lg">Mobile detailing, answered.</h2>
+      <p class="lead" style="margin-inline:auto">Got a different one? Text the shop at <a href="tel:+12248033305" style="color:var(--blue)">(224) 803-3305</a>.</p>
+    </div>
+    <div class="faq-layout">
+      <aside class="faq-contact reveal">
+        <img src="assets/img/owner.jpg" alt="Dan at the Detail Tech shop" loading="lazy" />
+        <div class="faq-contact__overlay">
+          <span class="faq-contact__badge"><i></i>Available now</span>
+          <div class="faq-contact__body">
+            <p class="faq-contact__hi">Hi, I'm Dan — let's get you on the schedule.</p>
+            <a class="btn btn--primary" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
+            <a class="btn btn--ghost" href="sms:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text the shop</a>
+            <span class="faq-contact__note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Replies within 24 hours</span>
+          </div>
+        </div>
+      </aside>
+      <div class="faq-list reveal" data-d="1">
+      <div class="faq reveal is-open">
+        <button class="faq__q" aria-expanded="true">How far will you travel?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq__a"><div><p>We cover the NW suburbs and out into Lake and Cook County, as far as Lake Forest and Rockford. If you're not sure you're in range, just ask and we'll let you know.</p></div></div>
+      </div>
+      <div class="faq reveal">
+        <button class="faq__q" aria-expanded="false">What do you need from me on site?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq__a"><div><p>[CONFIRM power/water requirements with Kevin before publishing.]</p></div></div>
+      </div>
+      <div class="faq reveal">
+        <button class="faq__q" aria-expanded="false">Do you do interior and exterior?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq__a"><div><p>Yes. Pick exterior only, interior only, or the full interior and exterior package. Each is priced to your vehicle.</p></div></div>
+      </div>
+      <div class="faq reveal">
+        <button class="faq__q" aria-expanded="false">How do I book?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq__a"><div><p>Tell us the vehicle, what you're after, and your location, and we'll get you scheduled and send a quote.</p></div></div>
+      </div>
+      <div class="faq reveal">
+        <button class="faq__q" aria-expanded="false">Is mobile the same price as the shop?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq__a"><div><p>Mobile detailing is priced by package and vehicle size. Tell us your vehicle and we'll give you the exact number.</p></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section quote-cta" data-screen-label="Final CTA">
+  <div class="wrap quote-grid">
+    <div class="reveal">
+      <span class="eyebrow">Let's go</span>
+      <h2 class="h-xl" style="font-size:clamp(2.4rem,5vw,4rem);margin-top:16px">Get your<br /><span class="text-blue">free estimate.</span></h2>
+      <p class="lead" style="margin-top:18px">Tell us about your vehicle, and we'll quickly send you a fair offer. No pressure, no hassle.</p>
+      <div class="cta-trust">
+        <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <b>5.0</b><span>From 299+ Google reviews</span>
+      </div>
+      <ul class="cta-benefits">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Free, no-obligation quote</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Honest pricing, no hidden fees</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Most quotes answered same day</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>System X Certified &amp; Licensed</li>
+      </ul>
+      <div class="hero__actions" style="margin-top:26px">
+        <a class="btn btn--ghost" href="tel:+12248033305">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          (224) 803-3305
+        </a>
+      </div>
+
+      <article class="greview reveal" data-d="1" style="margin-top:26px;max-width:460px">
+        <div class="greview__head">
+          <div class="greview__avatar" style="background:#8E24AA">F</div>
+          <div class="greview__who"><b>Frank Roemisch</b><span>5 reviews · a week ago</span></div>
+          <svg class="greview__g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg>
+        </div>
+        <div class="greview__stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+        <p class="greview__body">Kevin patiently, thoroughly, and clearly reviewed the protection options for our new vehicle in a no pressure manner. We opted for full vehicle application of PPF followed by ceramic coating and an interior protection application. Our specific requests, including a delayed pick up, were accommodated. When we picked up the vehicle yesterday, it looked amazing! We are extremely happy with our decision and definitely feel it was money well spent. Additionally, it was nice to deal with a business that kept us updated, followed through on everything they said, and we didn't need to have anything redone.</p>
+      </article>
+    </div>
+
+    <div class="quote-form reveal" data-d="1" style="padding:22px 0 0;overflow:hidden;border-radius:18px;background:#3098d2">
+      <iframe src="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU" title="Get a free quote — Detail Tech" loading="lazy" style="display:block;width:100%;height:1040px;border:0"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-mark.png" alt="Detail Tech" style="max-height:72px;width:auto" />
+        <p>Paint protection, wraps, tint and detailing — done right in Crystal Lake, IL. Built by the people who actually do the work.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/thedetailtech1/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V5h-3a4 4 0 0 0-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9a1 1 0 0 1 1-1Z"/></svg></a>
+          <a href="https://www.instagram.com/the_detailtech/?hl=en" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/channel/UCzKyYLONYXvyzBXzJ2Xn5bg" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.45-5.15a2.6 2.6 0 0 0-1.83-1.84C19.07 4.5 12 4.5 12 4.5s-7.07 0-8.72.51A2.6 2.6 0 0 0 1.45 6.85 27.4 27.4 0 0 0 1 12a27.4 27.4 0 0 0 .45 5.15 2.6 2.6 0 0 0 1.83 1.84C4.93 19.5 12 19.5 12 19.5s7.07 0 8.72-.51a2.6 2.6 0 0 0 1.83-1.84C23 15.5 23 12 23 12Zm-13 3.5v-7l6 3.5Z"/></svg></a><a href="https://www.tiktok.com/@the_detailtech" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.28 2.06 1.5 3.58 3.5 3.79v2.4c-1.16.11-2.27-.27-3.5-1.02v5.66c0 3.39-2.47 5.67-5.56 5.67-2.82 0-5.14-2.05-5.14-4.9 0-3.03 2.44-5.02 5.62-4.7v2.48c-.43-.13-.9-.2-1.34-.2-1.28 0-2.3.94-2.3 2.32 0 1.4 1.03 2.4 2.42 2.4 1.5 0 2.5-1.1 2.5-2.9V3h3.34Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="ppf.html">PPF</a></li>
+          <li><a href="wrap.html">Vinyl Wrap</a></li>
+          <li><a href="fleet.html">Fleet &amp; Commercial</a></li>
+          <li><a href="tint.html">Window Tint</a></li>
+          <li><a href="ceramic.html">Ceramic Coating</a></li>
+          <li><a href="correction.html">Paint Correction</a></li>
+          <li><a href="mobile.html">Mobile Detailing</a></li>
+          <li><a href="auto-detailing.html">Auto Detailing</a></li>
+          <li><a href="pdr.html">PDR</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Service area</h4>
+        <ul>
+          <li>Crystal Lake</li>
+          <li>McHenry · Woodstock</li>
+          <li>Huntley · Algonquin</li>
+          <li>Cary · Lake Zurich</li>
+          <li>Barrington</li>
+          <li>Carpentersville + NW suburbs</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Visit / contact</h4>
+        <address class="nap">
+          <ul>
+            <li><a href="https://maps.google.com/?q=3305+State+Rte+31+Suite+2+Crystal+Lake+IL+60012" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>3305 State Rte. 31, Suite&nbsp;#2<br />Crystal Lake, IL 60012</span></a></li>
+            <li><a href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><span>(224) 803-3305</span></a></li>
+            <li><a href="mailto:info@thedetailtech.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>info@thedetailtech.com</span></a></li>
+            <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Mon–Sat · 8:00 AM – 6:00 PM</span></a></li>
+          </ul>
+        </address>
+        <div class="footer-map">
+          <iframe title="Detail Tech location map" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2951.824121708355!2d-88.2902764!3d42.2822776!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x25846aeb01b4987%3A0x3f00acc29ce2fcdb!2sDetail%20Tech%20-%20Paint%20Protection%20Film%2C%20Ceramic%20Coating%20%26%20Window%20Tints!5e0!3m2!1sen!2s!4v1783077527466!5m2!1sen!2s"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> The Detail Tech. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE BAR ============ -->
+<div class="mobile-bar">
+  <a class="btn btn--ghost" href="tel:+12248033305">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+    Call
+  </a>
+  <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+</div>
+
+<!-- ============ Service + FAQ SCHEMA ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mobile Detailing",
+  "name": "Mobile Detailing",
+  "description": "Mobile detailing that comes to you across the NW Chicago suburbs, Lake and Cook County. Interior and exterior detailing at your home or office.",
+  "provider": {
+    "@type": "AutoBodyShop",
+    "name": "Detail Tech",
+    "telephone": "+1-224-803-3305",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3305 State Rte. 31, Suite #2",
+      "addressLocality": "Crystal Lake",
+      "addressRegion": "IL",
+      "postalCode": "60012",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": "Crystal Lake, IL and NW Chicago suburbs, Lake and Cook County"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How far will you travel?","acceptedAnswer":{"@type":"Answer","text":"We cover the NW suburbs and out into Lake and Cook County, as far as Lake Forest and Rockford. If you're not sure you're in range, just ask and we'll let you know."}},
+    {"@type":"Question","name":"Do you do interior and exterior?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pick exterior only, interior only, or the full interior and exterior package. Each is priced to your vehicle."}},
+    {"@type":"Question","name":"How do I book?","acceptedAnswer":{"@type":"Answer","text":"Tell us the vehicle, what you're after, and your location, and we'll get you scheduled and send a quote."}}
+  ]
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

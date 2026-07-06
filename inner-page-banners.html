@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inner-Page Banners — 5 Options | Detail Tech</title>
+<meta name="design_doc_mode" content="canvas" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="sections.css" />
+<template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#0A0A0A"/><text x="600" y="380" text-anchor="middle" font-family="Arial" font-size="86" font-weight="800" fill="#00ABDF">BANNERS</text><text x="600" y="470" text-anchor="middle" font-family="Arial" font-size="46" font-weight="700" fill="#EAECEE">for inner pages</text></svg>
+</template>
+<style>
+  body { background: #070809; }
+  .wrapx { max-width: 1200px; margin: 0 auto; padding-inline: var(--gutter); }
+  .head { padding: clamp(30px,5vw,60px) 0 6px; }
+  .head h1 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -1px; font-size: clamp(1.9rem,4vw,2.9rem); }
+  .head p { color: var(--muted); margin-top: 12px; max-width: 66ch; line-height: 1.7; }
+  .opt { padding: clamp(20px,3vw,34px) 0; }
+  .opt__bar { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+  .opt__badge { font-family: var(--ff-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #03171d; background: var(--blue); padding: 5px 11px; border-radius: 100px; }
+  .opt__name { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.5px; font-size: 1.05rem; }
+  .opt__note { color: var(--muted-2); font-size: 0.85rem; }
+  .opt__use { color: var(--blue); font-family: var(--ff-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* shared */
+  .stars { display: inline-flex; gap: 2px; color: #FFC53D; }
+  .stars svg { width: 18px; height: 18px; }
+  .glogo { width: 20px; height: 20px; flex-shrink: 0; }
+  .yico { width: 20px; height: 20px; object-fit: contain; flex-shrink: 0; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--ff-mono); font-weight: 700; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); background: var(--surface-2); border: 1px solid var(--line-strong); padding: 7px 12px; border-radius: 100px; }
+  .chip svg { width: 14px; height: 14px; color: var(--blue); }
+  .chip--blue { color: #03171d; background: var(--blue); border-color: var(--blue); }
+
+  /* ============ A · Trust bar (slim) ============ */
+  .a-bar { display: flex; align-items: center; gap: clamp(16px,3vw,32px); flex-wrap: wrap; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px clamp(18px,2.5vw,28px); }
+  .a-bar__score { display: flex; align-items: center; gap: 12px; }
+  .a-bar__score b { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: 1.7rem; line-height: 1; }
+  .a-bar__score span { font-size: 0.86rem; color: var(--muted); }
+  .a-bar__score span b { font-size: inherit; font-style: normal; font-weight: 700; color: var(--text); }
+  .a-div { width: 1px; height: 34px; background: var(--line-strong); }
+  .a-bar__award { display: flex; align-items: center; gap: 11px; }
+  .a-bar__award img { width: 38px; height: auto; }
+  .a-bar__award b { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 0.82rem; letter-spacing: -0.3px; line-height: 1.05; display: block; }
+  .a-bar__award span { font-family: var(--ff-mono); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  .a-bar__cta { margin-left: auto; }
+  @media (max-width: 760px) { .a-bar__cta { margin-left: 0; width: 100%; } .a-bar__cta .btn { width: 100%; } .a-div { display: none; } }
+
+  /* ============ B · Conversion band (centered) ============ */
+  .b-band { position: relative; overflow: hidden; text-align: center; border: 1px solid var(--line); border-radius: 20px; padding: clamp(34px,5vw,60px) clamp(20px,4vw,48px); background: radial-gradient(80% 130% at 50% 0%, rgba(0,171,223,0.16), transparent 60%), var(--surface); }
+  .b-band__proof { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--muted); }
+  .b-band h2 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -1px; font-size: clamp(1.7rem,3.4vw,2.7rem); line-height: 1; margin: 16px 0 22px; }
+  .b-band h2 .accent { color: var(--blue); }
+  .b-band__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ============ C · Rating split (no paragraph) ============ */
+  .c-split { display: grid; grid-template-columns: auto 1px 1fr auto; gap: clamp(18px,3vw,36px); align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(22px,3vw,34px) clamp(22px,3vw,40px); }
+  .c-big { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: clamp(3rem,6vw,4.6rem); line-height: 0.9; }
+  .c-big small { display: block; font-size: 0.9rem; font-style: normal; font-weight: 600; color: var(--muted); font-family: var(--ff-body); margin-top: 8px; letter-spacing: 0; }
+  .c-mid { display: flex; flex-direction: column; gap: 12px; }
+  .c-row { display: flex; align-items: center; gap: 10px; color: var(--text); font-size: 0.95rem; }
+  .c-actions { display: flex; flex-direction: column; gap: 10px; }
+  @media (max-width: 820px) { .c-split { grid-template-columns: 1fr; text-align: left; } .c-split .a-div, .c-split > .cdiv { display: none; } .c-actions .btn { width: 100%; } }
+  .cdiv { width: 1px; height: 72px; background: var(--line-strong); }
+
+  /* ============ D · Credential strip ============ */
+  .d-cred { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(22px,3vw,34px); }
+  .d-top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .d-top__score { display: flex; align-items: center; gap: 10px; font-size: 0.92rem; color: var(--muted); }
+  .d-top__score b { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: 1.4rem; color: var(--white); }
+  .d-cta { margin-left: auto; }
+  .d-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  @media (max-width: 760px) { .d-cta { margin-left: 0; width: 100%; } .d-cta .btn { width: 100%; } }
+
+  /* ============ E · Quote spotlight ============ */
+  .e-quote { display: grid; grid-template-columns: 1fr auto; gap: clamp(20px,4vw,44px); align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(24px,3.5vw,42px); position: relative; overflow: hidden; }
+  .e-quote::before { content: "\201C"; position: absolute; left: 18px; top: -18px; font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: 9rem; color: rgba(0,171,223,0.12); }
+  .e-quote__body { position: relative; }
+  .e-quote__stars { margin-bottom: 12px; }
+  .e-quote__text { font-family: var(--ff-display); font-weight: 700; font-style: italic; font-size: clamp(1.15rem,2vw,1.6rem); line-height: 1.35; letter-spacing: -0.02em; }
+  .e-quote__who { display: flex; align-items: center; gap: 10px; margin-top: 16px; color: var(--muted); font-size: 0.9rem; }
+  .e-quote__who b { color: var(--text); font-weight: 700; }
+  .e-quote__cta { display: flex; flex-direction: column; gap: 10px; }
+  @media (max-width: 820px) { .e-quote { grid-template-columns: 1fr; } .e-quote__cta .btn { width: 100%; } }
+
+  .g-mini { display:inline-flex; align-items:center; gap:7px; font-size:0.82rem; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrapx head">
+  <h1>Inner-page banners — 5 reusable options</h1>
+  <p>Light on copy, heavy on trust. Each is a drop-in band you can place near the top (right under the hero) or above the final CTA on any service page — PPF, ceramic, tint, wrap, correction, mobile. Every one carries real social proof (5.0 · 299+ Google, Yelp, Best Detailer 2024 &amp; 2025) and one clear action, so it earns its space instead of adding clutter. Tell me a number and I'll roll it out across the inner pages.</p>
+</div>
+
+<!-- A -->
+<div class="wrapx opt">
+  <div class="opt__bar"><span class="opt__badge">Option A</span><span class="opt__name">Trust bar</span><span class="opt__note">Slim one-liner. Rating + award + action.</span><span class="opt__use">Best right under the hero</span></div>
+  <div class="a-bar">
+    <div class="a-bar__score">
+      <span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>
+      <b>5.0</b>
+      <span><b>299+</b> Google reviews</span>
+    </div>
+    <span class="a-div"></span>
+    <div class="a-bar__award">
+      <img src="assets/award-best-detailer.png" alt="Best Detailer award" />
+      <div><b>Best Detailer in McHenry Co.</b><span>Voted 2024 &amp; 2025</span></div>
+    </div>
+    <div class="a-bar__cta"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</div>
+
+<!-- B -->
+<div class="wrapx opt">
+  <div class="opt__bar"><span class="opt__badge">Option B</span><span class="opt__name">Conversion band</span><span class="opt__note">Punchy headline + one action. Almost no body copy.</span><span class="opt__use">Best above the final CTA / mid-page</span></div>
+  <div class="b-band">
+    <span class="b-band__proof"><span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> 5.0 from 299+ Google reviews</span>
+    <h2>Crystal Lake's <span class="accent">most-trusted</span> shop.</h2>
+    <div class="b-band__actions">
+      <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Free Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="tel:+12248033305">Call (224) 803-3305</a>
+    </div>
+  </div>
+</div>
+
+<!-- C -->
+<div class="wrapx opt">
+  <div class="opt__bar"><span class="opt__badge">Option C</span><span class="opt__name">Rating split</span><span class="opt__note">Big score + proof rows + action. Zero paragraphs.</span><span class="opt__use">Great anywhere mid-page</span></div>
+  <div class="c-split">
+    <div class="c-big">5.0<small>Rated by drivers</small></div>
+    <span class="cdiv"></span>
+    <div class="c-mid">
+      <div class="c-row"><svg class="glogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg><b>299+</b>&nbsp;Google reviews</div>
+      <div class="c-row"><img class="yico" src="assets/img/yelp-icon.png" alt="Yelp" /> 5-star on Yelp</div>
+      <div class="c-row"><span class="chip chip--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0-5-5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg>Best Detailer · 2024 &amp; 2025</span></div>
+    </div>
+    <div class="c-actions">
+      <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+      <a class="btn btn--ghost" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Online</a>
+    </div>
+  </div>
+</div>
+
+<!-- D -->
+<div class="wrapx opt">
+  <div class="opt__bar"><span class="opt__badge">Option D</span><span class="opt__name">Credential strip</span><span class="opt__note">Authority badges + rating + action. Builds trust fast.</span><span class="opt__use">Best on service pages (PPF, ceramic, tint)</span></div>
+  <div class="d-cred">
+    <div class="d-top">
+      <div class="d-top__score"><span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span><b>5.0</b> · 299+ Google reviews</div>
+      <div class="d-cta"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+    <div class="d-chips">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>System X Certified</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>Legend PPF Authorized</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2"/></svg>SunTek Tint Authorized</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0-5-5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg>Best of the Fox 2024</span>
+      <span class="chip"><img class="yico" src="assets/img/yelp-icon.png" alt="" style="width:14px;height:14px" />5-star on Yelp</span>
+    </div>
+  </div>
+</div>
+
+<!-- E -->
+<div class="wrapx opt">
+  <div class="opt__bar"><span class="opt__badge">Option E</span><span class="opt__name">Quote spotlight</span><span class="opt__note">One real review, big and bold. Story-driven proof.</span><span class="opt__use">Best above the final CTA</span></div>
+  <div class="e-quote">
+    <div class="e-quote__body">
+      <div class="e-quote__stars stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+      <p class="e-quote__text">“Their work and professionalism is top notch, and their pricing is fair. I won't go or recommend anywhere else.”</p>
+      <div class="e-quote__who"><b>Bill Bouxsein</b> · via <svg class="glogo" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg> Google · 299+ five-star reviews</div>
+    </div>
+    <div class="e-quote__cta">
+      <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="reviews.html">Read more reviews</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrapx opt" style="padding-bottom:60px">
+  <p class="opt__note">Pick a number (A–E). I'll add the one you like to the inner pages — same block, consistent everywhere.</p>
+</div>
+
+</body>
+</html>

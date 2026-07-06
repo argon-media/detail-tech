@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Award Banner — 5 Variations | Detail Tech</title>
+<meta name="design_doc_mode" content="canvas" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="sections.css" />
+<template id="__bundler_thumbnail" data-bg-color="#0A0A0A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#0A0A0A"/><text x="600" y="380" text-anchor="middle" font-family="Arial" font-size="90" font-weight="800" fill="#00ABDF">BANNER</text><text x="600" y="480" text-anchor="middle" font-family="Arial" font-size="52" font-weight="800" fill="#FFC53D">★ 5 OPTIONS ★</text></svg>
+</template>
+<style>
+  body { background: #070809; }
+  .opts-head { max-width: 1180px; margin: 0 auto; padding: clamp(28px,5vw,56px) var(--gutter) 8px; }
+  .opts-head h1 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -1px; font-size: clamp(1.8rem,4vw,2.8rem); }
+  .opts-head p { color: var(--muted); margin-top: 12px; max-width: 60ch; line-height: 1.7; }
+  .opt { max-width: 1180px; margin: 0 auto; padding: clamp(20px,3vw,36px) var(--gutter); }
+  .opt__bar { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .opt__badge { font-family: var(--ff-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #03171d; background: var(--blue); padding: 5px 11px; border-radius: 100px; }
+  .opt__name { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.5px; font-size: 1.1rem; }
+  .opt__note { color: var(--muted-2); font-size: 0.86rem; }
+
+  /* Shared banner bits */
+  .bn { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); }
+  .bn__glow { position: absolute; width: 460px; height: 460px; background: radial-gradient(circle, var(--blue-glow), transparent 65%); opacity: .4; pointer-events: none; }
+  .frame45 { position: relative; aspect-ratio: 4/5; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-strong); background: #0d0f11; }
+  .frame45 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .rib { display: inline-flex; align-items: center; gap: 9px; font-family: var(--ff-mono); font-weight: 700; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1205; background: linear-gradient(90deg,#FFD26B,#F2A93B); padding: 7px 13px; border-radius: 100px; box-shadow: 0 8px 24px -10px rgba(242,169,59,.6); }
+  .rib svg { width: 15px; height: 15px; }
+  .gstars { display: inline-flex; gap: 2px; color: #FFC53D; }
+  .gstars svg { width: 18px; height: 18px; }
+  .glogo { width: 20px; height: 20px; flex-shrink: 0; }
+  .ylp { display: inline-flex; align-items: center; font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: 0.82rem; letter-spacing: -0.02em; color: #fff; background: #d32323; padding: 2px 8px; border-radius: 5px; }
+  .kicker { font-family: var(--ff-mono); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .bn h2 { font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -1.5px; line-height: 0.95; }
+
+  /* ---- Option 1: split feature ---- */
+  .bn1 { display: grid; grid-template-columns: 300px 1fr; gap: clamp(24px,4vw,52px); align-items: center; padding: clamp(22px,3vw,40px); }
+  .bn1 .bn__glow { right: -8%; top: -30%; }
+  .bn1__copy { position: relative; z-index: 1; }
+  .bn1 h2 { font-size: clamp(1.7rem,3.2vw,2.8rem); margin: 14px 0; }
+  .bn1 .accent { color: var(--blue); }
+  .bn1__row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 18px; color: var(--text); font-weight: 600; font-size: 0.95rem; }
+  .bn1__row .sep { width: 1px; height: 22px; background: var(--line-strong); }
+  .bn1__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  @media (max-width: 760px) { .bn1 { grid-template-columns: 1fr; } .bn1 .frame45 { max-width: 260px; } }
+
+  /* ---- Option 2: photo right + gold ribbon overlap ---- */
+  .bn2 { display: grid; grid-template-columns: 1fr 320px; gap: clamp(24px,4vw,52px); align-items: center; padding: clamp(22px,3vw,40px); }
+  .bn2 .bn__glow { left: -10%; bottom: -40%; }
+  .bn2__copy { position: relative; z-index: 1; }
+  .bn2 h2 { font-size: clamp(1.8rem,3.4vw,3rem); margin: 16px 0; }
+  .bn2 .accent { color: var(--blue); }
+  .bn2__media { position: relative; }
+  .bn2__media .rib { position: absolute; left: 14px; bottom: 14px; z-index: 2; }
+  .bn2__chips { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+  .bn2__chip { display: flex; align-items: center; gap: 12px; color: var(--text); font-size: 0.98rem; }
+  .bn2__chip svg.ck { width: 20px; height: 20px; color: var(--blue); flex-shrink: 0; }
+  .bn2__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  @media (max-width: 760px) { .bn2 { grid-template-columns: 1fr; } .bn2__media { order: -1; max-width: 260px; } }
+
+  /* ---- Option 3: centered spotlight ---- */
+  .bn3 { text-align: center; padding: clamp(30px,4vw,56px) clamp(20px,4vw,60px); }
+  .bn3 .bn__glow { left: 50%; top: -40%; transform: translateX(-50%); }
+  .bn3__inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .bn3 .frame45 { width: 220px; margin: 18px auto 0; }
+  .bn3 h2 { font-size: clamp(1.9rem,3.6vw,3rem); margin-top: 22px; }
+  .bn3 .accent { color: var(--blue); }
+  .bn3__stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 26px; }
+  .bn3__stat { border: 1px solid var(--line); border-radius: 14px; background: var(--bg); padding: 16px 12px; }
+  .bn3__stat b { display: block; font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: 1.5rem; color: var(--white); }
+  .bn3__stat span { display: block; font-family: var(--ff-mono); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+  .bn3__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+  @media (max-width: 560px) { .bn3__stats { grid-template-columns: 1fr; } }
+
+  /* ---- Option 4: photo + stacked proof cards ---- */
+  .bn4 { display: grid; grid-template-columns: 320px 1fr; gap: clamp(24px,4vw,48px); align-items: stretch; padding: clamp(22px,3vw,40px); }
+  .bn4 .bn__glow { right: -12%; top: -20%; }
+  .bn4__copy { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; }
+  .bn4 h2 { font-size: clamp(1.6rem,3vw,2.5rem); margin: 12px 0 20px; }
+  .bn4 .accent { color: var(--blue); }
+  .bn4__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bn4__card { border: 1px solid var(--line); border-radius: 14px; background: var(--bg); padding: 16px; display: flex; gap: 12px; align-items: flex-start; }
+  .bn4__card svg.ic { width: 22px; height: 22px; flex-shrink: 0; }
+  .bn4__card b { display: block; font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.5px; font-size: 0.98rem; line-height: 1.05; }
+  .bn4__card span { display: block; font-family: var(--ff-mono); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+  .bn4__actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  @media (max-width: 760px) { .bn4 { grid-template-columns: 1fr; } .bn4__media { max-width: 260px; } .bn4__cards { grid-template-columns: 1fr; } }
+
+  /* ---- Option 5: compact reusable strip ---- */
+  .bn5 { display: grid; grid-template-columns: auto 1fr auto; gap: clamp(18px,3vw,34px); align-items: center; padding: 18px clamp(20px,3vw,32px); }
+  .bn5 .bn__glow { right: 20%; top: -80%; width: 320px; height: 320px; }
+  .bn5 .frame45 { width: 96px; border-radius: 12px; }
+  .bn5__copy { position: relative; z-index: 1; }
+  .bn5 h2 { font-size: clamp(1.15rem,2vw,1.6rem); }
+  .bn5__row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 10px; color: var(--muted); font-size: 0.9rem; }
+  .bn5__row b { color: var(--text); }
+  .bn5__cta { position: relative; z-index: 1; }
+  @media (max-width: 720px) { .bn5 { grid-template-columns: auto 1fr; } .bn5__cta { grid-column: 1 / -1; } }
+</style>
+</head>
+<body>
+
+<div class="opts-head">
+  <h1>Award banner — 5 directions</h1>
+  <p>Five ways to feature the “Best of the Fox 2024” award photo alongside the ratings. The photo is 4:5 portrait, so every frame shows it in full, uncropped and sharp. Tell me which number you like (or a mix) and I’ll drop it onto the Reviews page — the same block can be reused on the homepage and service pages.</p>
+</div>
+
+<!-- OPTION 1 -->
+<div class="opt">
+  <div class="opt__bar"><span class="opt__badge">Option 1</span><span class="opt__name">Split feature</span><span class="opt__note">Photo left, headline + inline ratings right. Clean and confident.</span></div>
+  <div class="bn bn1">
+    <div class="bn__glow"></div>
+    <div class="frame45"><img src="assets/img/award-fox-2024.jpg" alt="Detail Tech holding the Best of the Fox 2024 award" /></div>
+    <div class="bn1__copy">
+      <span class="rib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0-5-5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg>Voted 2024 Best of the Fox · Car Wash / Detailing</span>
+      <h2>Officially one of<br />the <span class="accent">best in the county.</span></h2>
+      <p style="color:var(--muted);max-width:46ch;line-height:1.65">Northwest Herald Readers’ Choice winner for detailing in McHenry County — backed by a perfect Google score.</p>
+      <div class="bn1__row">
+        <b>5.0</b> · 299+ Google reviews
+        <span class="sep"></span>
+        <span class="ylp">Yelp</span> 5-star
+      </div>
+      <div class="bn1__actions">
+        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="https://www.google.com/maps/place/Detail+Tech+-+Paint+Protection+Film,+Ceramic+Coating+%26+Window+Tints/@42.2823082,-88.2874516,17z" target="_blank" rel="noopener">Read reviews</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPTION 2 -->
+<div class="opt">
+  <div class="opt__bar"><span class="opt__badge">Option 2</span><span class="opt__name">Checklist + photo right</span><span class="opt__note">Proof points as a checklist; gold ribbon pinned on the photo.</span></div>
+  <div class="bn bn2">
+    <div class="bn__glow"></div>
+    <div class="bn2__copy">
+      <span class="kicker">Award-winning · Crystal Lake, IL</span>
+      <h2>Not our words.<br /><span class="accent">Theirs.</span></h2>
+      <div class="bn2__chips">
+        <div class="bn2__chip"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Voted 2024 Best of the Fox — Car Wash / Detailing</div>
+        <div class="bn2__chip"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Best Detailer in McHenry County — 2024 &amp; 2025</div>
+        <div class="bn2__chip"><svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>5.0 from 299+ Google reviews, plus 5 stars on Yelp</div>
+      </div>
+      <div class="bn2__actions">
+        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="tel:+12248033305">Call (224) 803-3305</a>
+      </div>
+    </div>
+    <div class="bn2__media">
+      <div class="frame45"><img src="assets/img/award-fox-2024.jpg" alt="Detail Tech holding the Best of the Fox 2024 award" /></div>
+      <span class="rib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0-5-5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg>Best of the Fox 2024</span>
+    </div>
+  </div>
+</div>
+
+<!-- OPTION 3 -->
+<div class="opt">
+  <div class="opt__bar"><span class="opt__badge">Option 3</span><span class="opt__name">Centered spotlight</span><span class="opt__note">Symmetrical hero with a 3-stat proof strip. Great as a page section.</span></div>
+  <div class="bn bn3">
+    <div class="bn__glow"></div>
+    <div class="bn3__inner">
+      <span class="rib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0-5-5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg>Voted 2024 Best of the Fox · Car Wash / Detailing</span>
+      <div class="frame45"><img src="assets/img/award-fox-2024.jpg" alt="Detail Tech holding the Best of the Fox 2024 award" /></div>
+      <h2>The most-trusted detailer<br /><span class="accent">in McHenry County.</span></h2>
+      <div class="bn3__stats">
+        <div class="bn3__stat"><b>5.0</b><span>299+ Google reviews</span></div>
+        <div class="bn3__stat"><b>2×</b><span>Best Detailer · 2024 &amp; 2025</span></div>
+        <div class="bn3__stat"><b>5.0</b><span>on Yelp too</span></div>
+      </div>
+      <div class="bn3__actions">
+        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Online</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPTION 4 -->
+<div class="opt">
+  <div class="opt__bar"><span class="opt__badge">Option 4</span><span class="opt__name">Photo + proof cards</span><span class="opt__note">Editorial. Each accolade gets its own card. Most information-dense.</span></div>
+  <div class="bn bn4">
+    <div class="bn__glow"></div>
+    <div class="bn4__media"><div class="frame45"><img src="assets/img/award-fox-2024.jpg" alt="Detail Tech holding the Best of the Fox 2024 award" /></div></div>
+    <div class="bn4__copy">
+      <span class="kicker">The receipts</span>
+      <h2>Awarded, rated,<br /><span class="accent">and recommended.</span></h2>
+      <div class="bn4__cards">
+        <div class="bn4__card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#F2A93B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0-5-5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg>
+          <div><b>Best of the Fox 2024</b><span>Readers’ Choice · Detailing</span></div>
+        </div>
+        <div class="bn4__card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><b>Best Detailer</b><span>McHenry Co. · 2024 &amp; 2025</span></div>
+        </div>
+        <div class="bn4__card">
+          <svg class="ic glogo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87Z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29A12 12 0 0 0 0 12c0 1.94.46 3.77 1.29 5.38l3.98-3.09Z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75Z"/></svg>
+          <div><b>5.0 on Google</b><span>299+ reviews</span></div>
+        </div>
+        <div class="bn4__card">
+          <span class="ylp" style="margin-top:1px">Yelp</span>
+          <div><b>5 stars</b><span>on Yelp</span></div>
+        </div>
+      </div>
+      <div class="bn4__actions">
+        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPTION 5 -->
+<div class="opt">
+  <div class="opt__bar"><span class="opt__badge">Option 5</span><span class="opt__name">Compact strip</span><span class="opt__note">Short, reusable ribbon for the top or bottom of any page.</span></div>
+  <div class="bn bn5">
+    <div class="bn__glow"></div>
+    <div class="frame45"><img src="assets/img/award-fox-2024.jpg" alt="Detail Tech holding the Best of the Fox 2024 award" /></div>
+    <div class="bn5__copy">
+      <h2>Best of the Fox 2024 <span style="color:var(--blue)">winner</span></h2>
+      <div class="bn5__row">
+        <span class="rib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a5 5 0 1 0-5-5"/><path d="M8.5 13.5 6 22l6-3 6 3-2.5-8.5"/></svg>Best Detailer · 2024 &amp; 2025</span>
+        <span><b>5.0</b> · 299+ Google · 5-star Yelp</span>
+      </div>
+    </div>
+    <div class="bn5__cta"><a class="btn btn--primary btn--sm" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a></div>
+  </div>
+</div>
+
+<div class="opts-head" style="padding-top:8px;padding-bottom:60px">
+  <p class="opt__note">Pick a number (1–5) and I’ll place it on the Reviews page and prep it as a reusable block for other pages.</p>
+</div>
+
+</body>
+</html>
