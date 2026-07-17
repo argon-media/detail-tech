@@ -133,19 +133,13 @@
 .film-grid { display: grid; grid-template-columns: 1fr 0.85fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 .film-grid > div > p { color: var(--muted); font-size: clamp(1rem, 1.35vw, 1.12rem); line-height: 1.75; margin-top: 22px; }
 .film-finishes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
-.finish { position: relative; height: 134px; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-strong); display: flex; align-items: flex-end; transition: transform .3s var(--ease), border-color .3s var(--ease); }
+.finish { position: relative; border-radius: var(--r); border: 1px solid var(--line-strong); background: var(--surface); padding: 20px 18px; transition: transform .3s var(--ease), border-color .3s var(--ease); }
 .finish:hover { transform: translateY(-4px); border-color: rgba(0,171,223,0.55); }
-.finish__fill { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-.finish__fill--gloss { background: linear-gradient(125deg, #c2c7ce 0%, #4a4e54 42%, #0c0d0f 100%); }
-.finish__fill--matte { background: #2a2c2f; }
-.finish__fill--black { background: linear-gradient(125deg, #2c2f34 0%, #050506 100%); }
-.finish__fill--gloss::before, .finish__fill--black::before { content: ""; position: absolute; top: -20%; left: 0; width: 45%; height: 140%; background: linear-gradient(105deg, transparent, rgba(255,255,255,0.4), transparent); transform: skewX(-16deg) translateX(-60px); transition: transform .6s var(--ease); }
-.finish:hover .finish__fill--gloss::before, .finish:hover .finish__fill--black::before { transform: skewX(-16deg) translateX(340px); }
-.finish::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 38%, rgba(8,9,10,0.86)); }
-.finish__cap { position: relative; z-index: 2; padding: 15px 16px; }
-.finish__name { display: block; font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 1.08rem; letter-spacing: -0.02em; color: #fff; line-height: 1; }
-.finish__desc { display: block; margin-top: 5px; font-family: var(--ff-mono); font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
-@media (max-width: 480px) { .film-finishes { grid-template-columns: 1fr; } .finish { height: 100px; } }
+.finish__icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: rgba(0,171,223,0.12); color: var(--accent); }
+.finish__icon svg { width: 22px; height: 22px; }
+.finish__name { display: block; margin-top: 16px; font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 1.08rem; letter-spacing: -0.02em; color: var(--text); line-height: 1; }
+.finish__desc { display: block; margin-top: 7px; font-size: 0.86rem; line-height: 1.45; color: var(--muted); }
+@media (max-width: 480px) { .film-finishes { grid-template-columns: 1fr; } }
 .film-note { color: var(--text); font-size: 0.98rem; line-height: 1.65; margin-top: 18px; }
 #faq .faq-contact { align-self: center; }
 @media (max-width: 860px) { .film-grid { grid-template-columns: 1fr; } }
@@ -364,7 +358,7 @@
       <p>Good window tint does real work. It rejects heat so your cabin stays cooler, blocks UV rays that fade your interior and damage your skin, cuts glare, and adds privacy. A quality ceramic tint does all of that without the purple fade or bubbling that cheap film is known for, and ours is backed by a lifetime warranty.</p>
       <ul class="why__list" style="margin-top:26px">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rejects heat and keeps the cabin cooler</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Blocks UV to protect your interior and your skin</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Blocks up to 99% of UV to protect your interior and reduce skin exposure</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Cuts glare and adds privacy</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lifetime warranty, no purple fade or bubbling</li>
       </ul>
@@ -395,55 +389,54 @@
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/tint/white-sedan.png" alt="Two front windows tinted to match on a white sedan at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#C7CCD1">Fronts</span>
+          <span class="tier" style="color:#C7CCD1">Standard and Premium</span>
           <h3>Two Front Windows</h3>
-          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Match your two front windows to the rest of the car.</p>
+          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Upgrade your two front windows with excellent heat rejection and a clean, sleek look that complements the rest of your car. The film blocks harmful UV to protect your interior from fading and reduce skin exposure, cuts glare for a more comfortable drive, and adds a little extra privacy. Every install is backed by our lifetime warranty on materials and workmanship.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>SunTek Carbon or Evolve</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lifetime warranty</li>
           </ul>
-          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/r2LqQCKuOSfZ4NA4UFbh" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
         </div>
       </article>
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/tint/stelvio.png" alt="Full-vehicle window tint on a red Alfa Romeo Stelvio at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#00ABDF">Full</span>
+          <span class="tier" style="color:#00ABDF">Standard and Premium</span>
           <h3>Full Vehicle</h3>
-          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Every window except the windshield, priced by vehicle size.</p>
+          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Wrap every window (windshield excluded) in SunTek film for all-around heat rejection, up to 99% UV protection, less glare, and added privacy. We also install Evolve, our premium nano-hybrid ceramic film, for even stronger heat rejection, all with a clean, factory-look finish and a lifetime warranty.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Coupe, sedan, SUV, truck, large SUV</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>SunTek Carbon or Evolve</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lifetime warranty</li>
           </ul>
-          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/r2LqQCKuOSfZ4NA4UFbh" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
         </div>
       </article>
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/tint/acura-front.png" alt="Full windshield tint on a grey Acura at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#D6D9DE">Windshield</span>
+          <span class="tier" style="color:#D6D9DE">Standard</span>
           <h3>Windshield</h3>
-          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Full windshield tint or a sun strip across the top.</p>
+          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Choose a sun strip across the top or full windshield coverage in SunTek Carbon film to cut heat, glare, and up to 99% of UV rays for a cooler, more comfortable drive. Please note: windshield tint is illegal in Illinois, so this one's offered at your discretion and isn't covered by warranty. We recommend checking your local laws first.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sun strip or full windshield</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Maximum heat and UV rejection up front</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lifetime warranty</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>SunTek Carbon Film</li>
           </ul>
-          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/r2LqQCKuOSfZ4NA4UFbh" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
         </div>
       </article>
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/tint/sunroof.png" alt="Tinted panoramic sunroof glass on an SUV at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#6FD3E6">Roof</span>
+          <span class="tier" style="color:#6FD3E6">Standard and Premium</span>
           <h3>Sunroof / Moonroof</h3>
-          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Tint the glass roof to cut heat and glare overhead.</p>
+          <p style="color:var(--muted);margin-top:14px;font-size:1.04rem;line-height:1.6">Keep the sun overhead from heating up your cabin. SunTek film on your sunroof blocks direct sunlight for superior heat rejection, stops up to 99% of UV rays, and cuts glare, all with a clean look inside and out. We also install Evolve, our premium nano-hybrid ceramic film, for even stronger heat rejection, backed by a lifetime warranty.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>SunTek Carbon or Evolve</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lifetime warranty</li>
           </ul>
-          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/r2LqQCKuOSfZ4NA4UFbh" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
         </div>
       </article>
       <article class="pkgrow reveal">
@@ -456,7 +449,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Light smoke or dark smoke</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Starting at $50 per light</li>
           </ul>
-          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
+          <div class="pkgrow__actions"><a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/r2LqQCKuOSfZ4NA4UFbh" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
         </div>
       </article>
     </div>
@@ -483,7 +476,7 @@
         <span class="tier" style="color:#00ABDF">Premium</span>
         <h3>SunTek Evolve</h3>
         <span class="coat-card__yrs">Nano-hybrid ceramic · HeatResist</span>
-        <p style="color:var(--muted);margin-top:18px;font-size:0.98rem;line-height:1.65">SunTek's nano-hybrid ceramic film with HeatResist technology. Up to 94% infrared heat rejection and over 99% UV rejection, for the coolest cabin and the best protection.</p>
+        <p style="color:var(--muted);margin-top:18px;font-size:0.98rem;line-height:1.65">Built on SunTek's HeatResist™ nanoparticle technology, Evolve rejects up to 94% of infrared heat and blocks over 99% of UV, keeping your cabin cooler and your interior protected while cutting glare and skin exposure.</p>
         <div class="coat-card__actions"><a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost" href="tel:+12248033305">Call the Shop</a></div>
       </article>
     </div>
@@ -498,9 +491,9 @@
       <h2 class="h-lg" style="margin-top:18px">SunTek, built to last.</h2>
       <p>We install SunTek window film in two tiers, Carbon and Evolve. It rejects heat and UV, cuts glare, and won't turn purple or bubble like cheap tint. The premium Evolve line uses SunTek's HeatResist ceramic tech for up to 94% infrared heat rejection and over 99% UV rejection. Every install is backed by a lifetime warranty on materials and workmanship.</p>
       <div class="film-finishes">
-        <div class="finish"><span class="finish__fill finish__fill--gloss"></span><span class="finish__cap"><span class="finish__name">Heat</span><span class="finish__desc">Rejects heat, cooler cabin</span></span></div>
-        <div class="finish"><span class="finish__fill finish__fill--matte"></span><span class="finish__cap"><span class="finish__name">UV</span><span class="finish__desc">Blocks fade &amp; skin damage</span></span></div>
-        <div class="finish"><span class="finish__fill finish__fill--black"></span><span class="finish__cap"><span class="finish__name">Signal</span><span class="finish__desc">Signal-safe ceramic</span></span></div>
+        <div class="finish"><span class="finish__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 22a5 5 0 0 0 5-5c0-2-2-4-5-9-3 5-5 7-5 9a5 5 0 0 0 5 5Z"/></svg></span><span class="finish__name">Heat</span><span class="finish__desc">Rejects heat for a cooler cabin</span></div>
+        <div class="finish"><span class="finish__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg></span><span class="finish__name">UV</span><span class="finish__desc">Blocks fade &amp; skin damage</span></div>
+        <div class="finish"><span class="finish__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg></span><span class="finish__name">Signal</span><span class="finish__desc">Signal-safe ceramic film</span></div>
       </div>
       <div class="mobile-actions" style="margin-top:30px">
         <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -518,7 +511,7 @@
     <div class="section-head section-head--split reveal">
       <div>
         <span class="eyebrow">The work</span>
-        <h2 class="h-lg">Tint off our floor.</h2>
+        <h2 class="h-lg">Recent Tint Jobs.</h2>
       </div>
       <p class="lead">Real tint on real cars, from the Crystal Lake shop.</p>
     </div>
@@ -608,7 +601,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Word on the street</span>
-      <h2 class="h-lg">Tint customers, in their words.</h2>
+      <h2 class="h-lg">Hear It From Tint Customers</h2>
       <p class="lead">Real tint on real cars. Here's what drivers say after getting their windows done at our Crystal Lake shop.</p>
     </div>
     <div class="reviews-head reveal">
@@ -651,6 +644,58 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;margin-left:8px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ============ MOBILE DETAILING ============ -->
+<section class="section mobile-sec" id="mobile" data-screen-label="Mobile Detailing">
+  <div class="wrap mobile-grid">
+    <div class="mobile-copy reveal">
+      <span class="eyebrow">We come to you</span>
+      <h2 class="h-lg" style="margin-top:16px;margin-bottom:24px">Mobile detailing across the NW suburbs.</h2>
+      <p style="color:#9ba1a8;line-height:1.7">Mobile detailing is here. We bring everything to your driveway, at home or the office, and clean your car inside and out. We cover Crystal Lake, the NW suburbs, and beyond. Same certified team, same quality, and you don't have to leave home.</p>
+      <p style="color:#9ba1a8;line-height:1.7;margin-top:16px">We treat every car like our own, tell you exactly what we're doing, and you can reach us any time you have a question.</p>
+    </div>
+    <div class="mobile-figure reveal" data-d="1">
+      <img src="assets/img/van.jpg" alt="Detail Tech mobile detailing van" loading="lazy" />
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:clamp(36px,5vw,56px)">
+      <h3 style="font-family:var(--ff-display);font-weight:800;font-size:1.15rem;text-transform:uppercase;letter-spacing:0.04em;margin:0 0 18px;color:var(--white)">Areas We Serve</h3>
+      <ul class="areas-list">
+        <li>Lakewood</li>
+        <li>Prairie Grove</li>
+        <li>Cary</li>
+        <li>Fox River Grove</li>
+        <li>Island Lake</li>
+        <li>Algonquin</li>
+        <li>McHenry</li>
+        <li>Woodstock</li>
+        <li>Huntley</li>
+        <li>Carpentersville</li>
+        <li>Wauconda</li>
+        <li>North Barrington</li>
+        <li>Barrington Hills</li>
+        <li>Lake Zurich</li>
+        <li>Barrington</li>
+        <li>Pingree Grove</li>
+        <li>Long Grove</li>
+        <li>Kildeer</li>
+        <li>Hawthorn Woods</li>
+        <li>Deer Park</li>
+        <li>Hampshire</li>
+        <li>Elgin</li>
+        <li>South Elgin</li>
+        <li>Libertyville</li>
+        <li>St. Charles</li>
+        <li>Lake Forest</li>
+        <li>Geneva</li>
+      </ul>
+      <p style="color:#9ba1a8;margin-top:18px;font-size:0.95rem">…and many more nearby towns. Not on the list? Just give us a call. We likely cover you too.</p>
+      <div class="mobile-actions" style="margin-top:24px">
+        <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN/Tb8yLt3SimMoWKC0peNw" target="_blank" rel="noopener">Book Mobile Detailing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
+      </div>
   </div>
 </section>
 
