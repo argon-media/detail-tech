@@ -133,7 +133,9 @@
 /* --- The film we use --- */
 .film-grid { display: grid; grid-template-columns: 1fr 0.85fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 .film-grid > div > p { color: var(--muted); font-size: clamp(1rem, 1.35vw, 1.12rem); line-height: 1.75; margin-top: 22px; }
-.film-finishes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+.film-finishes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 26px; }
+.film-logo { height: 110px; display: grid; place-items: center; padding: 20px 26px; background: #fff; border: 1px solid var(--line-strong); border-radius: var(--r); }
+.film-logo img { max-height: 52px; max-width: 100%; width: auto; object-fit: contain; }
 .finish { position: relative; height: 134px; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-strong); display: flex; align-items: flex-end; transition: transform .3s var(--ease), border-color .3s var(--ease); }
 .finish:hover { transform: translateY(-4px); border-color: rgba(0,171,223,0.55); }
 .finish__fill { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
@@ -146,7 +148,7 @@
 .finish__cap { position: relative; z-index: 2; padding: 15px 16px; }
 .finish__name { display: block; font-family: var(--ff-display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 1.08rem; letter-spacing: -0.02em; color: #fff; line-height: 1; }
 .finish__desc { display: block; margin-top: 5px; font-family: var(--ff-mono); font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
-@media (max-width: 480px) { .film-finishes { grid-template-columns: 1fr; } .finish { height: 100px; } }
+@media (max-width: 480px) { .film-finishes { grid-template-columns: 1fr; } .finish { height: 100px; } .film-logo { height: 92px; } }
 .film-note { color: var(--text); font-size: 0.98rem; line-height: 1.65; margin-top: 18px; }
 #faq .faq-contact { align-self: center; }
 @media (max-width: 860px) { .film-grid { grid-template-columns: 1fr; } }
@@ -316,8 +318,8 @@
   <div class="ppf-hero__inner">
     <div class="wrap ppf-hero__layout">
       <div class="ppf-hero__copy">
-        <span class="eyebrow">Vinyl Wrap · Crystal Lake, IL</span>
-        <h1 class="h-xl">Change the color. <span class="accent">Change the car.</span></h1>
+        <span class="eyebrow">Crystal Lake, IL</span>
+        <h1 class="h-xl">Professional <span class="accent">Vinyl Wraps</span> at Detail Tech.</h1>
         <p class="ppf-hero__sub">A full color change, a chrome delete, or custom accents, all in premium film that protects your paint underneath. Over 200 colors and finishes from 3M and Avery Dennison.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -342,20 +344,20 @@
     </div>
     <div class="tstrip__grid">
       <div class="tcert reveal">
-        <span class="tcert__logo"><img src="assets/img/logo-systemx.png" alt="System X Ceramic Protection" loading="lazy" /></span>
-        <span class="tcert__cap">Certified System X installers</span>
-      </div>
-      <div class="tcert reveal" data-d="1">
         <span class="tcert__logo"><img src="assets/img/logo-3m.png" alt="3M" loading="lazy" /></span>
         <span class="tcert__cap">Premium 3M wrap films</span>
       </div>
-      <div class="tcert reveal" data-d="2">
-        <span class="tcert__logo"><img src="assets/img/logo-suntek.png" alt="SunTek" loading="lazy" /></span>
-        <span class="tcert__cap">SunTek authorized</span>
-      </div>
-      <div class="tcert reveal" data-d="3">
+      <div class="tcert reveal" data-d="1">
         <span class="tcert__logo"><img src="assets/img/logo-avery-dennison.png" alt="Avery Dennison" loading="lazy" /></span>
         <span class="tcert__cap">Avery Dennison wrap films</span>
+      </div>
+      <div class="tcert reveal" data-d="2">
+        <span class="tcert__logo"><img src="assets/img/logo-systemx.png" alt="System X Ceramic Protection" loading="lazy" /></span>
+        <span class="tcert__cap">Certified System X installers</span>
+      </div>
+      <div class="tcert reveal" data-d="3">
+        <span class="tcert__logo"><img src="assets/img/logo-suntek.png" alt="SunTek" loading="lazy" /></span>
+        <span class="tcert__cap">SunTek authorized</span>
       </div>
     </div>
   </div>
@@ -366,9 +368,9 @@
 <section class="section" id="what-is-wrap" data-screen-label="What is a Wrap">
   <div class="wrap whatis-grid">
     <div class="reveal">
-      <span class="eyebrow">What is a wrap</span>
-      <h2 class="h-lg" style="margin-top:18px">So, what is a vinyl wrap?</h2>
-      <p>A vinyl wrap is a colored or printed film applied over your paint. It can completely change your color, add custom accents, or black out the chrome, all without touching the factory paint underneath. On healthy paint, a proper wrap protects what's beneath it and comes off clean when you want a change. It's the fastest way to transform how your vehicle looks.</p>
+      <span class="eyebrow">Certified team</span>
+      <h2 class="h-lg" style="margin-top:18px">Premium Vinyl, Expertly Installed</h2>
+      <p>A vinyl wrap is a colored or printed film applied over your paint. It can completely change your color, add custom accents, or black out the chrome, all without touching the factory paint underneath. On healthy paint, a proper wrap protects what's beneath it and comes off clean when you want a change. It's the fastest way to transform how your vehicle looks and Detail Tech makes it happen.</p>
       <ul class="why__list" style="margin-top:26px">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full color changes in over 200 colors and finishes</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gloss, satin, matte, and specialty films</li>
@@ -395,8 +397,8 @@
   <div class="wrap">
     <div class="section-head section-head--split reveal">
       <div>
-        <span class="eyebrow">Restyling options</span>
-        <h2 class="h-lg">Pick your look.</h2>
+        <span class="eyebrow">From full wraps to chrome deletes</span>
+        <h2 class="h-lg">Restyling Options</h2>
       </div>
       <p class="lead">Every wrap is quoted to the vehicle and the design. Tell us what you have in mind and we'll confirm once we see it.</p>
     </div>
@@ -406,7 +408,7 @@
         <div>
           <span class="tier" style="color:#00ABDF">Restyle · Color Change</span>
           <h3>Full Body Color Change</h3>
-          <p class="pkgrow__desc" style="color:var(--muted);font-size:0.98rem;line-height:1.6;margin-top:14px;max-width:46ch">The most cost-efficient way to give your car a new look without repainting. We clay bar the surface to remove contamination before installation, and body panels are removed on almost every vehicle for a seamless finish and clean removal down the road. With over 200 colors from 3M and Avery Dennison, you'll find your color with ease.</p>
+          <p class="pkgrow__desc" style="color:var(--muted);font-size:0.98rem;line-height:1.6;margin-top:14px;max-width:46ch">The most cost-efficient way to give your car a new look without repainting. We clay bar the surface to remove contamination before installation, and body panels are removed on almost every vehicle for a seamless finish and clean removal down the road. With over 200 colors from 3M and Avery Dennison, you'll find your color with ease. Upgrade your style and protect your factory paint at the same time.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Over 200 colors and finishes</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>3M and Avery Dennison films</li>
@@ -443,7 +445,7 @@
         <div>
           <span class="tier" style="color:#C7CCD1">Restyle · Chrome Delete</span>
           <h3>Chrome Delete</h3>
-          <p class="pkgrow__desc" style="color:var(--muted);font-size:0.98rem;line-height:1.6;margin-top:14px;max-width:46ch">Something feels off about the exterior and you can't place it? It's usually the chrome trim breaking up an otherwise seamless look. We black it out in your choice of gloss or matte, and you're in and out the same day with a sleeker, cleaner exterior.</p>
+          <p class="pkgrow__desc" style="color:var(--muted);font-size:0.98rem;line-height:1.6;margin-top:14px;max-width:46ch">Not sure why your car looks a little dated? It's usually the shiny chrome trim. We black it out in gloss or matte, giving your car a sleeker, cleaner look, and you're in and out the same day.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Blacks out chrome trim, badges, and surrounds</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Your choice of gloss or matte</li>
@@ -484,11 +486,10 @@
     <div class="reveal">
       <span class="eyebrow">The materials we use</span>
       <h2 class="h-lg" style="margin-top:18px">3M &amp; Avery Dennison.</h2>
-      <p>We wrap with premium films from 3M and Avery Dennison, the materials the best shops in the country trust. That means clean color, durable finishes, and film that installs right and removes clean. Gloss, satin, matte, and specialty finishes are all on the table.</p>
+      <p>We only use premium cast film from 3M and Avery Dennison, the brands the best shops trust. It's made to wrap tight around every curve, hold up to sun, rain, and car washes, and keep its color for years, then peel off clean without hurting your paint. Pick from gloss, satin, matte, color-shift, or specialty finishes and give your car a whole new style.</p>
       <div class="film-finishes">
-        <div class="finish"><span class="finish__fill finish__fill--gloss"></span><span class="finish__cap"><span class="finish__name">Gloss</span><span class="finish__desc">Deep factory shine</span></span></div>
-        <div class="finish"><span class="finish__fill finish__fill--matte"></span><span class="finish__cap"><span class="finish__name">Satin &amp; Matte</span><span class="finish__desc">Flat, modern finish</span></span></div>
-        <div class="finish"><span class="finish__fill finish__fill--black"></span><span class="finish__cap"><span class="finish__name">Specialty</span><span class="finish__desc">Color-shift &amp; more</span></span></div>
+        <div class="film-logo"><img src="assets/img/logo-3m.png" alt="3M" loading="lazy" /></div>
+        <div class="film-logo"><img src="assets/img/logo-avery-dennison.png" alt="Avery Dennison" loading="lazy" /></div>
       </div>
       <div class="mobile-actions" style="margin-top:30px">
         <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -506,7 +507,7 @@
     <div class="section-head section-head--split reveal">
       <div>
         <span class="eyebrow">The work</span>
-        <h2 class="h-lg">Wraps off our floor.</h2>
+        <h2 class="h-lg">See Our Wrap Work</h2>
       </div>
       <p class="lead">Color changes, chrome deletes, and fleet builds from the Crystal Lake shop.</p>
     </div>
@@ -515,6 +516,7 @@
       <div class="work-shot"><img src="assets/img/wrap/work-team-red.jpg" alt="Detail Tech team working on a red sports car" loading="lazy" /></div>
       <div class="work-shot"><img src="assets/img/wrap/work-board-1.jpg" alt="Custom vinyl-wrapped snowboard art at Detail Tech" loading="lazy" /></div>
       <div class="work-shot"><img src="assets/img/wrap/work-wrx-front.jpg" alt="Color-shift wrapped Subaru WRX, front, at Detail Tech" loading="lazy" /></div>
+      <div class="work-shot"><img src="assets/img/wrap/work-huracan-yellow.jpg" alt="Satin yellow wrapped Lamborghini Huracan by Detail Tech" loading="lazy" /></div>
       <div class="work-shot"><img src="assets/img/wrap/work-board-2.jpg" alt="Custom vinyl-wrapped snowboard on display at Detail Tech" loading="lazy" /></div>
     </div>
   </div>
@@ -545,11 +547,10 @@
   <div class="wrap certs__grid">
     <div class="certs__photo reveal"><img src="assets/img/certs-photo.jpg" alt="Detail Tech owner holding certifications" loading="lazy" /></div>
     <div class="reveal" data-d="1">
-      <span class="eyebrow" style="margin-bottom:18px">Why Detail Tech</span>
-      <h2 class="h-lg" style="margin:0 0 18px">Credentials you can check.</h2>
+      <span class="eyebrow" style="margin-bottom:18px">Why book with us</span>
+      <h2 class="h-lg" style="margin:0 0 18px">Why Detail <span class="accent">Tech</span></h2>
       <ul class="why__list" style="margin-top:26px">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Premium 3M and Avery Dennison films</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Panels removed for a seamless, clean-removal finish</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Voted Best Detailer in McHenry County, 2024 and 2025</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Licensed and insured Crystal Lake shop</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>310+ five-star Google reviews</li>
@@ -621,8 +622,8 @@
 <section class="section bg-alt hairline-top" id="faq" data-screen-label="FAQ">
   <div class="wrap">
     <div class="section-head reveal" style="text-align:center;margin-inline:auto">
-      <span class="eyebrow eyebrow--center">Common questions</span>
-      <h2 class="h-lg">Wraps, answered.</h2>
+      <span class="eyebrow eyebrow--center">FAQs</span>
+      <h2 class="h-lg">Questions We Hear a Lot</h2>
       <p class="lead" style="margin-inline:auto">Got a different one? Text the shop at <a href="tel:+12248033305" style="color:var(--blue)">(224) 803-3305</a>.</p>
     </div>
     <div class="faq-layout">
@@ -643,8 +644,7 @@
         <div class="faq reveal"><button class="faq__q" aria-expanded="false">How long does a wrap last?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq__a"><div><p>A quality wrap lasts for years with proper care.</p></div></div></div>
         <div class="faq reveal"><button class="faq__q" aria-expanded="false">How many colors can I choose from?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq__a"><div><p>Over 200, across 3M and Avery Dennison, in gloss, satin, matte, and specialty finishes.</p></div></div></div>
         <div class="faq reveal"><button class="faq__q" aria-expanded="false">What's a chrome delete?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq__a"><div><p>We wrap the shiny chrome trim, badges, and window surrounds in gloss or matte black, for a cleaner, modern look, usually done same day.</p></div></div></div>
-        <div class="faq reveal"><button class="faq__q" aria-expanded="false">Can you wrap just part of the car?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq__a"><div><p>Yes. Accents, decals, stripes, roof, mirrors, or hood, priced to the job.</p></div></div></div>
-        <div class="faq reveal"><button class="faq__q" aria-expanded="false">Is a wrap the same as PPF?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq__a"><div><p>No. A wrap changes how the car looks. PPF is clear and protects the paint from chips. Some people do both.</p></div></div></div>
+        <div class="faq reveal"><button class="faq__q" aria-expanded="false">Can you wrap just part of the car?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq__a"><div><p>Yes. We can wrap just the parts you want, like accents, decals, stripes, the roof, mirrors, or hood. Pricing depends on the job.</p></div></div></div>
       </div>
     </div>
   </div>
@@ -805,9 +805,8 @@
   "mainEntity": [
     {"@type":"Question","name":"Does a wrap damage my paint?","acceptedAnswer":{"@type":"Answer","text":"No. On factory paint in good shape, a proper wrap protects what's underneath and comes off clean when you're ready for a change."}},
     {"@type":"Question","name":"How long does a wrap last?","acceptedAnswer":{"@type":"Answer","text":"A quality wrap lasts for years with proper care."}},{"@type":"Question","name":"How many colors can I choose from?","acceptedAnswer":{"@type":"Answer","text":"Over 200, across 3M and Avery Dennison, in gloss, satin, matte, and specialty finishes."}},
-    {"@type":"Question","name":"Can you wrap just part of the car?","acceptedAnswer":{"@type":"Answer","text":"Yes. Accents, decals, stripes, roof, mirrors, or hood, priced to the job."}},
-    {"@type":"Question","name":"What's a chrome delete?","acceptedAnswer":{"@type":"Answer","text":"We wrap the shiny chrome trim, badges, and window surrounds in gloss or matte black, for a cleaner, modern look, usually done same day."}},
-    {"@type":"Question","name":"Is a wrap the same as PPF?","acceptedAnswer":{"@type":"Answer","text":"No. A wrap changes how the car looks. PPF is clear and protects the paint from chips. Some people do both."}}
+    {"@type":"Question","name":"Can you wrap just part of the car?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can wrap just the parts you want, like accents, decals, stripes, the roof, mirrors, or hood. Pricing depends on the job."}},
+    {"@type":"Question","name":"What's a chrome delete?","acceptedAnswer":{"@type":"Answer","text":"We wrap the shiny chrome trim, badges, and window surrounds in gloss or matte black, for a cleaner, modern look, usually done same day."}}
   ]
 }
 </script>

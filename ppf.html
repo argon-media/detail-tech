@@ -65,6 +65,9 @@
 @media (max-width: 860px) { .whatis-grid { grid-template-columns: 1fr; } .whatis-figure img { aspect-ratio: 4/3; } }
 
 /* --- Packages (alternating rows) --- */
+.pkg-note { margin-top: clamp(40px, 5vw, 64px); display: flex; align-items: center; gap: 12px; padding: 18px 22px; border: 1px solid var(--line, rgba(255,255,255,0.12)); border-radius: 12px; font-size: 0.95rem; line-height: 1.55; color: var(--muted, #9AA3AC); white-space: nowrap; width: fit-content; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.pkg-note svg { width: 20px; height: 20px; flex: none; color: #00ABDF; }
+@media (max-width: 900px) { .pkg-note { white-space: normal; align-items: flex-start; } .pkg-note svg { margin-top: 2px; } }
 .pkg-rows { margin-top: 50px; display: flex; flex-direction: column; gap: clamp(48px, 6.5vw, 96px); }
 .pkgrow { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 66px); align-items: center; }
 .pkgrow__media { position: relative; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-strong); background: linear-gradient(180deg, #16181b, #0f1113); aspect-ratio: 16/11; }
@@ -274,9 +277,9 @@
   <div class="ppf-hero__inner">
     <div class="wrap ppf-hero__layout">
       <div class="ppf-hero__copy">
-        <span class="eyebrow">Paint Protection Film · Crystal Lake, IL</span>
-        <h1 class="h-xl">Stop rock chips<br /><span class="accent">before they start.</span></h1>
-        <p class="ppf-hero__sub">PPF is a clear, self-healing film that takes the hits your paint would. Rock chips, scratches, salt, and road debris hit the film, not your finish. We install Legend PPF, from a partial front to full-body coverage, all backed by warranty.</p>
+        <span class="eyebrow">PPF · Crystal Lake, IL</span>
+        <h1 class="h-xl"><span class="accent" style="color:#FFFFFF">Paint Protection Film</span></h1>
+        <p class="ppf-hero__sub">PPF is a clear, self-healing film that takes the hits so your paint doesn't. Rock chips, scratches, salt, and road debris hit the film instead of your finish. We install Legend PPF, from a partial front to full-body coverage, all backed by warranty.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">
             Get a Quote
@@ -306,12 +309,12 @@
     </div>
     <div class="tstrip__grid">
       <div class="tcert reveal">
-        <span class="tcert__logo"><img src="assets/img/logo-systemx.png" alt="System X Ceramic Protection" loading="lazy" /></span>
-        <span class="tcert__cap">Certified System X installers</span>
-      </div>
-      <div class="tcert reveal" data-d="1">
         <span class="tcert__logo"><img src="assets/img/logo-legend-ppf.png" alt="Legend Paint Protection Film" loading="lazy" /></span>
         <span class="tcert__cap">Certified Legend PPF installers</span>
+      </div>
+      <div class="tcert reveal" data-d="1">
+        <span class="tcert__logo"><img src="assets/img/logo-systemx.png" alt="System X Ceramic Protection" loading="lazy" /></span>
+        <span class="tcert__cap">Certified System X installers</span>
       </div>
       <div class="tcert reveal" data-d="2">
         <span class="tcert__logo"><img src="assets/img/logo-suntek.png" alt="SunTek" loading="lazy" /></span>
@@ -329,13 +332,13 @@
 <section class="section" id="what-is-ppf" data-screen-label="What is PPF">
   <div class="wrap whatis-grid">
     <div class="reveal">
-      <span class="eyebrow">What is PPF</span>
+      <span class="eyebrow">Your paint's invisible shield</span>
       <h2 class="h-lg" style="margin-top:18px">So, what is paint protection film?</h2>
-      <p>Paint protection film, or PPF, is a clear, tough urethane layer applied right over your vehicle's paint. Think of it as an invisible shield. It takes the rock chips, scratches, salt, and road debris that would otherwise hit your finish, and it does it without changing how your car looks. The top layer even self-heals light scratches with a little heat, from the sun or warm water. Once it's on, your factory paint stays perfect underneath.</p>
+      <p>Paint protection film, or PPF, is a clear, tough layer applied right over your car's paint. Think of it as an invisible shield. It takes the rock chips, scratches, salt, and road debris that would otherwise hit your finish, without changing how your car looks. The top layer even self-heals light scratches with a little heat from the sun or warm water. Once it's on, your factory paint stays protected underneath.</p>
       <ul class="why__list" style="margin-top:26px">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Blocks rock chips, scratches, and road debris</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Self-healing top layer that clears light swirls with heat</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Keeps dirt from bonding, so washing stays easy</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dirt doesn't stick, so it's easier to clean</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Preserves your paint and your resale value</li>
       </ul>
       <div class="hero__actions" style="margin-top:30px">
@@ -354,10 +357,10 @@
   <div class="wrap">
     <div class="section-head section-head--split reveal">
       <div>
-        <span class="eyebrow">PPF Packages</span>
-        <h2 class="h-lg">Pick your coverage.</h2>
+        <span class="eyebrow">Pick your coverage</span>
+        <h2 class="h-lg">PPF Packages</h2>
       </div>
-      <p class="lead">Installed in Optical and Nano Fusion film &mdash; from door cups to full-body coverage, here's exactly what each package includes. Prices are starting points; we'll confirm once we see the vehicle.</p>
+      <p class="lead">Every package uses premium Legend paint protection film, installed by our authorized, certified team. From partial coverage to full-body protection, here's exactly what each one includes. Prices are starting points and vary by vehicle.</p>
     </div>
 
     <div class="pkg-rows">
@@ -365,17 +368,16 @@
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><span class="pkgrow__no">02</span><img src="assets/img/pkg-partial.jpg" alt="Partial front-end PPF coverage" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#C7CCD1">Package 02 &middot; Silver</span>
+          <span class="tier" style="color:#C7CCD1">Package 01 &middot; Silver</span>
           <h3>Partial Front End</h3>
-          <div class="pkgrow__price"><b>$999</b><span>starting</span></div>
+          <div class="pkgrow__price"><b>$1,500</b><span>starting</span></div>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full front bumper</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>10&quot; onto the hood</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>10&quot; onto the fenders</li>
           </ul>
           <div class="pkgrow__meta">
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>10-Year Material Warranty</span>
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>No paint correction</span>
+            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>12-Year Material Warranty</span>
           </div>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -387,9 +389,9 @@
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><span class="pkgrow__no">03</span><img src="assets/img/pkg-full-front.jpg" alt="Full front-end PPF coverage" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#E0B44A">Package 03 &middot; Gold</span>
+          <span class="tier" style="color:#E0B44A">Package 02 &middot; Most Popular Package</span>
           <h3>Full Front End</h3>
-          <div class="pkgrow__price"><b>$1,600</b><span>starting</span></div>
+          <div class="pkgrow__price"><b>$2,200</b><span>starting</span></div>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full front bumper</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full hood</li>
@@ -397,8 +399,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Mirror caps</li>
           </ul>
           <div class="pkgrow__meta">
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>10-Year Material Warranty</span>
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>No paint correction</span>
+            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>12-Year Material Warranty</span>
           </div>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -412,7 +413,7 @@
         <div>
           <span class="tier" style="color:#6FD3E6">Package 04 &middot; Diamond</span>
           <h3>Track Package</h3>
-          <div class="pkgrow__price"><b>$2,000</b><span>starting</span></div>
+          <div class="pkgrow__price"><b>$2,800</b><span>starting</span></div>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full front bumper</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full hood</li>
@@ -422,8 +423,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A-pillars</li>
           </ul>
           <div class="pkgrow__meta">
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>10-Year Material Warranty</span>
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>No paint correction</span>
+            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>12-Year Material Warranty</span>
           </div>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -437,15 +437,14 @@
         <div>
           <span class="tier" style="color:#D6D9DE">Package 05 &middot; Platinum</span>
           <h3>Full Body PPF</h3>
-          <div class="pkgrow__price"><b>$5,000</b><span>starting</span></div>
+          <div class="pkgrow__price"><b>$6,500</b><span>starting</span></div>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Every painted surface</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Whole vehicle wrapped</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Maximum impact + UV protection</li>
           </ul>
           <div class="pkgrow__meta">
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>10-Year Material Warranty</span>
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>No paint correction</span>
+            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>12-Year Material Warranty</span>
           </div>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -466,8 +465,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Optical clarity, no distortion</li>
           </ul>
           <div class="pkgrow__meta">
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>10-Year Material Warranty</span>
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-6 6M9 9l6 6"/></svg>No paint correction</span>
+            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>12-Year Material Warranty</span>
           </div>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -476,6 +474,8 @@
         </div>
       </article>
     </div>
+
+    <p class="pkg-note reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>Please note: these are all starting prices and vary depending on the vehicle. Prices do not include accent pieces.</p>
   </div>
 </section>
 
@@ -516,7 +516,6 @@
       <div class="gal__item"><img src="assets/gallery/g15.jpg" alt="PPF install on a Chevrolet Camaro at Detail Tech" loading="lazy" /></div>
       <div class="gal__item"><img src="assets/gallery/g36.jpg" alt="PPF install on a black Corvette at Detail Tech" loading="lazy" /></div>
       <div class="gal__item"><img src="assets/gallery/g07.jpg" alt="PPF install on a BMW M4 at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/gallery/g33.jpg" alt="PPF install on a Genesis SUV at Detail Tech" loading="lazy" /></div>
       <div class="gal__item"><img src="assets/gallery/g13.jpg" alt="Headlight protected with film at Detail Tech" loading="lazy" /></div>
       <div class="gal__item"><img src="assets/gallery/g38.jpg" alt="Corvettes on the Detail Tech shop floor" loading="lazy" /></div>
       <div class="gal__item"><img src="assets/gallery/g29.jpg" alt="Porsche 911 at the Detail Tech shop" loading="lazy" /></div>
