@@ -114,6 +114,13 @@ That's it. `detailtech.argon-devsite.com` auto-updates from the same Vercel prod
 
 3. **Bundle folder naming varies.** Older bundles extract to `detail-tech-latest/project/`, newer ones to `site-export/`. Always `find` the root before scripting paths.
 
+   ⚠ **`Detail Tech Latest (3)` (2026-09-08) shipped BOTH** — a full project at the zip root AND a
+   `site-export/` subfolder. They differed on 14 of 15 shared pages, and **`site-export/` was a
+   byte-identical copy of the then-live site, not the new work**. The bundle **root** was the new
+   export (newer mtime, 16 changed lines vs the repo; `site-export/` had 0).
+   **When a bundle has two candidate roots, diff each against the repo — the one that matches the
+   repo exactly is the stale snapshot, not the update.**
+
 4. **6 `*-options.html` files are dead weight.** `about-values-options`, `award-options`, `banner-options`, `hero-options`, `ppf-trust-options`, `inner-page-banners` — Claude Design's A/B mockups. Nothing links to them. If they disappear from a bundle, don't add them back. If they appear in a new bundle, don't feel obligated to ship.
 
 5. **Site-wide footer is the Tesla footer.** In July 2026 I unified all page footers to match `tesla.html`'s footer (which has an extra "Quick links" column: Tesla, About, Reviews, Blog, Contact). Later bundles preserve this. If a future bundle regresses one page's footer, re-run the tesla-footer sync — script pattern is preserved in git history under commit "Unify site footer across all pages using Tesla page footer as canonical".
