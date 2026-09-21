@@ -121,6 +121,12 @@ That's it. `detailtech.argon-devsite.com` auto-updates from the same Vercel prod
    **When a bundle has two candidate roots, diff each against the repo — the one that matches the
    repo exactly is the stale snapshot, not the update.**
 
+   ⚠ **`href="#quote"` is INTENTIONAL, not a placeholder** — every page has `<section id="quote">`
+   for the on-page quote form, and header/CTA "Get a Quote" buttons anchor to it. On 2026-09-22 I
+   incorrectly picked the site-export version with external Urable URLs over the root version with
+   `#quote` (thinking Urable was "production-ready"). The user re-exported to revert. Never assume
+   `#quote` is broken — check for `id="quote"` in the same file first.
+
 4. **6 `*-options.html` files are dead weight.** `about-values-options`, `award-options`, `banner-options`, `hero-options`, `ppf-trust-options`, `inner-page-banners` — Claude Design's A/B mockups. Nothing links to them. If they disappear from a bundle, don't add them back. If they appear in a new bundle, don't feel obligated to ship.
 
 5. **Site-wide footer is the Tesla footer.** In July 2026 I unified all page footers to match `tesla.html`'s footer (which has an extra "Quick links" column: Tesla, About, Reviews, Blog, Contact). Later bundles preserve this. If a future bundle regresses one page's footer, re-run the tesla-footer sync — script pattern is preserved in git history under commit "Unify site footer across all pages using Tesla page footer as canonical".
