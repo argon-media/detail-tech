@@ -84,10 +84,11 @@
 /* --- Packages (alternating rows) --- */
 .pkg-rows { margin-top: 44px; display: flex; flex-direction: column; gap: clamp(48px, 6.5vw, 96px); }
 .pkgrow { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 66px); align-items: center; }
-.pkgrow__media { position: relative; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-strong); background: linear-gradient(180deg, #16181b, #0f1113); aspect-ratio: 16/11; }
+.pkgrow__media { position: relative; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-strong); background: linear-gradient(180deg, #16181b, #0f1113); aspect-ratio: 5/5.1; }
 .pkgrow__media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .7s var(--ease); }
 .pkgrow:hover .pkgrow__media img { transform: scale(1.045); }
 .pkgrow__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pkgrow__media:has(iframe) { aspect-ratio: 16/9; }
 .pkgrow__no { position: absolute; top: 10px; left: 18px; z-index: 2; font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: clamp(3rem, 5vw, 4.4rem); line-height: 1; color: rgba(255,255,255,0.14); letter-spacing: -2px; }
 .pkgrow:nth-child(even) .pkgrow__media { order: 2; }
 .tier { display: inline-flex; align-items: center; gap: 9px; font-family: var(--ff-mono); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; }
@@ -105,17 +106,21 @@
 @media (max-width: 460px) { .pkgrow__list { grid-template-columns: 1fr; } }
 
 /* --- Package tabs --- */
-.pkgtabs-wrap { display: flex; justify-content: center; margin-top: 40px; }
-.pkgtabs { display: inline-flex; gap: 6px; padding: 7px; border: 1px solid var(--line-strong); border-radius: 100px; background: var(--surface); }
-.pkgtab { display: inline-flex; align-items: center; gap: 11px; padding: 13px 30px; border-radius: 100px; border: 0; background: transparent; color: var(--muted); font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 1.05rem; letter-spacing: -0.01em; cursor: pointer; transition: background .25s var(--ease), color .25s var(--ease); }
-.pkgtab svg { width: 21px; height: 21px; }
-.pkgtab .pkgtab__n { font-family: var(--ff-mono); font-style: normal; font-weight: 500; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-2); padding: 3px 8px; border-radius: 100px; background: rgba(255,255,255,0.06); }
-.pkgtab.is-active { background: var(--blue); color: #03171d; }
-.pkgtab.is-active .pkgtab__n { color: #03171d; background: rgba(0,0,0,0.14); }
-.pkg-panel { display: none; }
-.pkg-panel.is-active { display: block; animation: pkgfade .4s var(--ease); }
+.pkg-panel .pkgrow__media:not(.pkgrow__media--duo) { aspect-ratio: 5/5.1; }
+.pkgrow__media--duo { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; aspect-ratio: auto; height: clamp(480px, 58vw, 760px); border: 0; background: none; border-radius: 0; overflow: visible; }
+.pkgrow__media--duo img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg); display: block; border: 1px solid var(--line-strong); }
+.pkg-panel { position: relative; margin-top: 52px; padding: 0 clamp(0px, 2.6vw, 34px) clamp(24px, 3vw, 44px); border: 1px solid var(--line-strong); border-radius: var(--r-lg); background: rgba(255,255,255,0.012); }
+.pkg-panel[data-panel="exterior"] { background: rgba(255,255,255,0.028); }
+.pkg-panel .pkghead { margin: -1px calc(-1 * clamp(0px, 2.6vw, 34px)) 0; border-radius: var(--r-lg) var(--r-lg) 0 0; border-top: 0; border-right: 0; border-left-width: 4px; }
+@media (max-width: 700px) { .pkg-panel { padding-inline: 14px; } }
+.pkghead { display: flex; align-items: center; gap: 16px; margin-top: 44px; padding: 15px 22px; border-radius: 14px; border: 1px solid var(--line-strong); border-left: 4px solid var(--blue); background: linear-gradient(90deg, rgba(0,171,223,0.13), transparent 62%); }
+.pkghead__num { font-family: var(--ff-display); font-weight: 900; font-style: italic; font-size: 1.6rem; color: var(--blue); line-height: 1; }
+.pkghead__t { font-family: var(--ff-display); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 1.12rem; color: var(--white); line-height: 1.1; }
+.pkghead__s { font-family: var(--ff-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 5px; display: block; }
+.pkg-panel[data-panel="exterior"] .pkghead { border-left-color: var(--white); background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent 62%); }
+.pkg-panel[data-panel="exterior"] .pkghead__num { color: var(--white); }
 @keyframes pkgfade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@media (max-width: 520px) { .pkgtab { padding: 12px 20px; font-size: 0.95rem; } .pkgtab .pkgtab__n { display: none; } }
+@media (max-width: 520px) { .pkghead { padding: 13px 16px; gap: 12px; } }
 
 /* --- Before / after grid --- */
 .ppf-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; }
@@ -161,6 +166,12 @@
 .tcert__logo { width: 100%; height: 84px; display: grid; place-items: center; padding: 16px 20px; background: #fff; border: 1px solid var(--line-strong); border-radius: 14px; }
 .tcert__logo img { height: 48px; width: auto; max-width: 100%; object-fit: contain; display: block; }
 .tcert__logo--award { background: var(--surface); padding: 7px 16px; }
+.trust-strip .tstrip__grid { grid-template-columns: repeat(3, 1fr); max-width: 780px; margin-inline: auto; }
+.ppf-hero__layout { position: relative; }
+.hero-award { position: absolute; right: clamp(16px, 4vw, 54px); bottom: clamp(-36px, -3vw, -12px); z-index: 4; pointer-events: none; animation: awardIn 1s var(--ease) .35s both; }
+.hero-award img { width: clamp(120px, 14vw, 200px); height: auto; display: block; filter: drop-shadow(0 18px 40px rgba(0,0,0,0.65)) drop-shadow(0 0 30px rgba(0,171,223,0.22)); }
+@keyframes awardIn { from { opacity: 0; transform: translateY(18px) scale(.94); } to { opacity: 1; transform: none; } }
+@media (max-width: 900px) { .hero-award { position: static; margin: 26px 0 0; display: flex; justify-content: flex-start; } .hero-award img { width: 150px; } }
 .tcert__logo--award img { height: 70px; }
 .tcert__cap { font-family: var(--ff-mono); font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
 @media (max-width: 760px) { .tstrip__grid { grid-template-columns: repeat(2, 1fr); gap: 18px 16px; } .tcert__logo { height: 76px; padding: 14px 16px; } .tcert__logo img { height: 40px; } .tcert__logo--award { padding: 5px 14px; } .tcert__logo--award img { height: 64px; } }
@@ -216,13 +227,13 @@
         </button>
         <div class="nav__menu">
           <a href="ppf.html">Paint Protection Film</a>
+          <a href="tint.html">Window Tint</a>
           <a href="wrap.html">Vinyl Wrap</a>
           <a href="fleet.html">Fleet &amp; Commercial Graphics</a>
-          <a href="tint.html">Window Tint</a>
+          <a href="auto-detailing.html">Auto Detailing</a>
           <a href="mobile.html">Mobile Detailing</a>
           <a href="ceramic.html">Ceramic Coating</a>
           <a href="correction.html">Paint Correction</a>
-          <a href="auto-detailing.html">Auto Detailing</a>
           <a href="pdr.html">PDR</a>
         </div>
       </div>
@@ -238,7 +249,7 @@
     </a>
     <div class="header-cta">
       <a class="btn btn--ghost btn--sm" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Online</a>
-      <a class="btn btn--primary btn--sm" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+      <a class="btn btn--primary btn--sm" href="#quote">Get a Quote</a>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -258,13 +269,13 @@
     <li class="m-label">Services</li>
     <li class="m-subwrap"><ul class="m-sub">
       <li><a href="ppf.html">Paint Protection Film</a></li>
+      <li><a href="tint.html">Window Tint</a></li>
       <li><a href="wrap.html">Vinyl Wrap</a></li>
       <li><a href="fleet.html">Fleet &amp; Commercial Graphics</a></li>
-      <li><a href="tint.html">Window Tint</a></li>
+      <li><a href="auto-detailing.html">Auto Detailing</a></li>
       <li><a href="mobile.html">Mobile Detailing</a></li>
       <li><a href="ceramic.html">Ceramic Coating</a></li>
       <li><a href="correction.html">Paint Correction</a></li>
-      <li><a href="auto-detailing.html">Auto Detailing</a></li>
       <li><a href="pdr.html">PDR</a></li>
     </ul></li>
     <li><a href="tesla.html">Tesla</a></li>
@@ -274,7 +285,7 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <div class="mobile-nav__foot">
-    <a class="btn btn--primary btn--block" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+    <a class="btn btn--primary btn--block" href="#quote">Get a Quote</a>
     <a class="btn btn--solid-dark btn--block" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Online</a>
     <a class="btn btn--ghost btn--block" href="tel:+12248033305">Call (224) 803-3305</a>
   </div>
@@ -285,20 +296,23 @@
 <!-- ============ HERO ============ -->
 <section class="ppf-hero" data-screen-label="Hero">
   <div class="ppf-hero__media">
-    <img src="assets/img/detailing.jpg" alt="Interior and exterior auto detailing at Detail Tech in Crystal Lake, IL" />
+    <img src="assets/img/detailing-hero-shop.jpg" alt="Audi RS6 and R8 parked outside the Detail Tech shop in Crystal Lake, IL" />
   </div>
   <div class="ppf-hero__scrim"></div>
   <div class="hero__glow"></div>
   <div class="ppf-hero__inner">
     <div class="wrap ppf-hero__layout">
       <div class="ppf-hero__copy">
-        <span class="eyebrow">Auto Detailing · Crystal Lake, IL</span>
-        <h1 class="h-xl">A full reset,<br /><span class="accent">inside and out.</span></h1>
-        <p class="ppf-hero__sub">From a deep interior clean to a decontaminated, glossy exterior, our detailing brings your vehicle back to its best. Pick interior, exterior, or the full package, in Standard or Premium.</p>
+        <span class="eyebrow">CRYSTAL LAKE, IL</span>
+        <h1 class="h-xl">Expert <span class="accent">Auto Detailing</span> at Detail Tech</h1>
+        <p class="ppf-hero__sub">From a deep interior clean to a glossy, decontaminated exterior, we bring your vehicle back to its best at our Crystal Lake shop. Pick interior, exterior, or both.</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--primary" href="#quote">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
         </div>
+      </div>
+      <div class="hero-award" aria-label="Voted Best Detailer in McHenry County, 2024 and 2025">
+        <img src="assets/award-best-detailer.png" alt="McHenry County Awarded Best Detailer 2024 and 2025" />
       </div>
     </div>
   </div>
@@ -327,10 +341,6 @@
         <span class="tcert__logo"><img src="assets/img/logo-suntek.png" alt="SunTek" loading="lazy" /></span>
         <span class="tcert__cap">SunTek authorized</span>
       </div>
-      <div class="tcert reveal" data-d="3">
-        <span class="tcert__logo tcert__logo--award"><img src="assets/award-best-detailer.png" alt="McHenry County Best Detailer award 2024 and 2025" loading="lazy" /></span>
-        <span class="tcert__cap">Best Detailer · 2024 &amp; 2025</span>
-      </div>
     </div>
   </div>
 </section>
@@ -340,7 +350,7 @@
   <div class="wrap whatis-grid">
     <div class="reveal">
       <span class="eyebrow">Why detail your car</span>
-      <h2 class="h-lg" style="margin-top:18px">More than a car wash.</h2>
+      <h2 class="h-lg" style="margin-top:18px">Beyond the Wash.</h2>
       <p>A drive-through wash moves dirt around. A real detail removes it. We use safe hand-wash methods, steam, and decontamination to lift what builds up over time, from embedded brake dust on the outside to bacteria and odors on the inside. The result is a vehicle that looks, feels, and smells like new, and paint that stays healthier longer.</p>
       <ul class="why__list" style="margin-top:26px">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Safe 3-bucket hand wash that avoids swirls and scratches</li>
@@ -349,12 +359,12 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior odor, stain, and pet-hair removal</li>
       </ul>
       <div class="hero__actions" style="margin-top:30px">
-        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--primary" href="#quote">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
       </div>
     </div>
     <figure class="whatis-figure reveal" data-d="1">
-      <img src="assets/img/detailing/interior-footwell.avif" alt="Deep-cleaned interior after a Detail Tech detail" loading="lazy" />
+      <img src="assets/img/detailing/foam-wash-corvette.jpg" alt="Blue Corvette covered in foam during a hand wash at Detail Tech" loading="lazy" />
     </figure>
   </div>
 </section>
@@ -364,40 +374,32 @@
   <div class="wrap">
     <div class="section-head reveal" style="text-align:center;margin-inline:auto">
       <span class="eyebrow eyebrow--center">Interior &amp; Exterior</span>
-      <h2 class="h-lg">Detail your car, your way.</h2>
-      <p class="lead" style="margin-inline:auto">Two ways to detail, inside or out. Switch between our interior and exterior packages, each with its own levels.</p>
-    </div>
-
-    <div class="pkgtabs-wrap reveal">
-      <div class="pkgtabs" role="tablist" aria-label="Detail packages">
-        <button class="pkgtab is-active" role="tab" aria-selected="true" data-tab="interior">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11V6.5A2.5 2.5 0 0 1 7.5 4H9M19 11V6.5A2.5 2.5 0 0 0 16.5 4H15"/><rect x="4" y="11" width="16" height="6" rx="1.5"/><path d="M7 17v3M17 17v3"/></svg>
-          Interior <span class="pkgtab__n">2 levels</span>
-        </button>
-        <button class="pkgtab" role="tab" aria-selected="false" data-tab="exterior">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14l-1.5-5A3 3 0 0 0 14.6 10H9.4a3 3 0 0 0-2.9 2L5 17Z"/><circle cx="7.5" cy="17.5" r="1.6"/><circle cx="16.5" cy="17.5" r="1.6"/></svg>
-          Exterior <span class="pkgtab__n">3 levels</span>
-        </button>
-      </div>
+      <h2 class="h-lg">Detailing Packages at Detail Tech</h2>
+      <p class="lead" style="margin-inline:auto">From a quick interior refresh to a full inside-and-out restoration, every package is done by hand at our Crystal Lake shop. Switch between our interior and exterior packages, each with its own levels.</p>
     </div>
 
     <div class="pkg-panel is-active" data-panel="interior">
+      <div class="pkghead">
+        <span class="pkghead__num">01</span>
+        <span><span class="pkghead__t">Interior Packages</span><span class="pkghead__s">Inside the cabin · 2 levels</span></span>
+      </div>
       <div class="pkg-rows">
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/detailing/pkg-interior-standard.jpeg" alt="Cleaned BMW back seats after a Standard interior detail at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#6FD3E6">Interior · Standard</span>
+          <span class="tier" style="color:#6FD3E6">COST-EFFECTIVE REFRESH</span>
           <h3>Standard Interior Detail</h3>
-          <p class="pkgrow__desc">A high-quality interior refresh without paying for services you don't need.</p>
+          <p class="pkgrow__desc">A clean, fresh interior without paying for services you don't need. Our Standard Interior Detail is built for daily drivers and busy schedules, giving you a professional clean that makes every drive feel fresh again.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thorough vacuum of carpets, seats, and floor mats</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Steam cleaning to safely lift dirt, grime, and bacteria</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior glass cleaned for a clear, streak-free finish</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete wipe-down of interior surfaces</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete wipe-down of dash, console, door panels, and trim</li>
           </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-size:0.9rem;opacity:0.8">*Pricing may vary based on vehicle condition</p>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -405,9 +407,9 @@
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/detailing/pkg-interior-premium.jpeg" alt="Detailed Ferrari interior after a Premium interior detail at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#00ABDF">Interior · Premium</span>
+          <span class="tier" style="color:#00ABDF">DEEP INTERIOR RESTORATION</span>
           <h3>Premium Interior Detail</h3>
-          <p class="pkgrow__desc">A deep, professional-grade restoration for interiors that need more than a basic clean.</p>
+          <p class="pkgrow__desc">For interiors that need more than a basic clean. Our Premium Interior Detail removes embedded dirt, odors, and buildup, then restores the look and feel of your cabin so it's noticeably cleaner, refreshed, and protected.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete interior decontamination to remove built-up grime and odors</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thorough vacuum of carpets, seats, and floor mats</li>
@@ -417,32 +419,39 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior plastic and trim restoration</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior glass cleaned for a streak-free finish</li>
           </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-size:0.9rem;opacity:0.8">*Pricing may vary based on vehicle condition</p>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
       </div>
     </div>
-    <div class="pkg-panel" data-panel="exterior">
+    <div class="pkg-panel is-active" data-panel="exterior">
+      <div class="pkghead">
+        <span class="pkghead__num">02</span>
+        <span><span class="pkghead__t">Exterior Packages</span><span class="pkghead__s">Paint, glass &amp; wheels · 3 levels</span></span>
+      </div>
       <div class="pkg-rows">
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/detailing/pkg-exterior-standard.png" alt="Grey BMW X6 after a Standard exterior detail at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#6FD3E6">Exterior · Standard</span>
+          <span class="tier" style="color:#6FD3E6">ROUTINE MAINTENANCE</span>
           <h3>Standard Exterior Detail</h3>
-          <p class="pkgrow__desc">Safely cleans and protects your exterior while preserving your paint.</p>
+          <p class="pkgrow__desc">Your paint deserves better than a quick rinse. Our Standard Exterior Detail is a proper hand wash that clears away dirt and road grime the safe way, with no swirls, no scratches, and no shortcuts. Just a clean, sharp finish every time.</p>
           <ul class="pkgrow__list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional 3-bucket hand wash using proper wash methods</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional 3-bucket hand wash to prevent cross-contamination</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Detailed cleaning of wheels, tires, barrels, and calipers</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Removal of surface dirt and road grime without risking your finish</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Safe hand wash to avoid swirl marks and scratches</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Safe hand wash that helps avoid swirl marks and scratches</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Removal of surface dirt, dust, and road debris</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Final rinse and dry for a clean, refreshed finish</li>
           </ul>
+          <p class="pkgrow__desc" style="margin-top:18px">The easy way to keep your car looking sharp between bigger details.</p>
+          <p class="pkgrow__desc" style="margin-top:10px;font-size:0.9rem;opacity:0.8">*Pricing depends on your vehicle's condition.</p>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -450,21 +459,22 @@
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><img src="assets/img/detailing/pkg-exterior-premium.png" alt="Grey Porsche 911 after a Premium exterior detail at Detail Tech" loading="lazy" /></div>
         <div>
-          <span class="tier" style="color:#00ABDF">Exterior · Premium</span>
+          <span class="tier" style="color:#00ABDF">WASH + DECON + CERAMIC</span>
           <h3>Premium Exterior Detail</h3>
-          <p class="pkgrow__desc">A comprehensive exterior restoration that goes far beyond a basic wash.</p>
+          <p class="pkgrow__desc">Some dirt doesn't wash off. It bonds to your paint. Our Premium Exterior Detail goes far beyond a basic wash, pulling out the embedded brake dust, tar, and contaminants a normal wash leaves behind, then sealing your paint with a 6-month ceramic coating for lasting gloss and effortless washing.</p>
           <ul class="pkgrow__list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional 3-bucket hand wash for a safe, swirl-free wash</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Iron decontamination to remove embedded brake dust and fallout</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clay bar application to eliminate bonded contaminants and restore smoothness</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional 3-bucket hand wash</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Iron decontamination to remove embedded brake dust and industrial fallout</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clay bar treatment to eliminate bonded contaminants and restore smoothness</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Detailed cleaning of wheels, tires, and calipers</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Safe removal of tree sap, tar, and bug residue</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>6-month ceramic coating for added gloss and hydrophobic protection</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Exterior plastic trim restoration to revive faded trim</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Long-lasting protection added to the finish</li>
           </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-size:0.9rem;opacity:0.8">*Pricing depends on your vehicle's condition.</p>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -472,9 +482,9 @@
       <article class="pkgrow reveal">
         <div class="pkgrow__media"><iframe src="https://www.youtube.com/embed/3Bt4eUjHGV4?si=tCygHKg62knhw3bQ" title="Elite Exterior Detail — Detail Tech" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
         <div>
-          <span class="tier" style="color:#E0B44A">Exterior · Elite</span>
+          <span class="tier" style="color:#E0B44A">WASH + DECON + POLISH + SEAL</span>
           <h3>Elite Exterior Detail</h3>
-          <p class="pkgrow__desc">Our top exterior package, with paint enhancement and a protective coating.</p>
+          <p class="pkgrow__desc">Our top exterior package. A paint enhancement polish brings back the shine, and an XTREME SEAL G-Pro Coating locks it in for 6 to 12 months while making every wash easier.</p>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional 3-bucket hand wash for a safe, swirl-free wash</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Iron decontamination to remove embedded brake dust and fallout</li>
@@ -483,11 +493,12 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Safe removal of tree sap, tar, and bug residue</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>DA paint enhancement polish on the full vehicle</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Exterior plastic trim restoration to revive faded trim</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>XTREME SEAL G-Pro Coating for added gloss, hydrophobic protection, and easier maintenance</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>6 to 12 month XTREME SEAL G-Pro Coating for gloss and hydrophobic protection</li>
           </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-size:0.9rem;opacity:0.8">*Pricing depends on your vehicle's condition.</p>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -500,43 +511,72 @@
 <section class="section" id="full" data-screen-label="Full Package">
   <div class="wrap">
     <div class="section-head reveal" style="text-align:center;margin-inline:auto">
-      <span class="eyebrow eyebrow--center">The full package</span>
+      <span class="eyebrow eyebrow--center">BUNDLE &amp; SAVE</span>
       <h2 class="h-lg">Everything, in one visit.</h2>
       <p class="lead" style="margin-inline:auto">Our most popular services combined into one package, for a complete refresh at a better value than booking separately.</p>
     </div>
     <div class="pkg-rows">
       <article class="pkgrow reveal">
-        <div class="pkgrow__media"><img src="assets/img/detailing/bmw-x6.avif" alt="Grey BMW X6 fully detailed inside and out at Detail Tech" loading="lazy" /></div>
+        <div class="pkgrow__media">
+          <img src="assets/img/detailing/combo-amg-exterior.jpg" alt="Detailed grey Mercedes-AMG E63 after a full interior and exterior detail at Detail Tech" loading="lazy" />
+        </div>
         <div>
-          <span class="tier" style="color:#6FD3E6">Full Detail · Standard</span>
-          <h3>Standard Interior &amp; Exterior</h3>
-          <p class="pkgrow__desc">The perfect balance of quality, convenience, and value.</p>
+          <span class="tier" style="color:#6FD3E6">BUNDLE &amp; SAVE</span>
+          <h3>Standard Interior &amp; Exterior Detail</h3>
+          <p class="pkgrow__desc">Get the full refresh in one stop. Our Standard Interior &amp; Exterior Detail pairs a thorough interior clean with a safe, swirl-free hand wash, so your car looks and feels new inside and out. And because they're bundled, you pay less than booking them separately.</p>
+          <p class="pkgrow__desc" style="margin-top:18px;font-weight:600">Interior includes:</p>
           <ul class="pkgrow__list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full standard interior detail, vacuum, steam, glass, and surface wipe-down</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full standard exterior detail, safe hand wash, wheels and tires, dirt and grime removal</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A complete inside-and-out refresh in one visit</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thorough vacuum of carpets, seats, and floor mats</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Steam cleaning to remove dirt, grime, and bacteria</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior glass cleaned to a streak-free finish</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete wipe-down of all interior surfaces</li>
           </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-weight:600">Exterior includes:</p>
+          <ul class="pkgrow__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional 3-bucket hand wash for a safe, swirl-free wash</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Detailed cleaning of wheels, tires, barrels, and calipers</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Removal of surface dirt, dust, and road debris</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Final rinse and dry for a clean, refreshed finish</li>
+          </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-size:0.9rem;opacity:0.8">*Pricing may vary based on vehicle condition</p>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
 
       <article class="pkgrow reveal">
-        <div class="pkgrow__media"><img src="assets/img/detailing/polish.avif" alt="Paint enhancement during a Premium full detail at Detail Tech" loading="lazy" /></div>
+        <div class="pkgrow__media">
+          <img src="assets/img/detailing/premium-corvette.jpg" alt="Red Corvette convertible detailed inside and out at the Detail Tech shop" loading="lazy" />
+        </div>
         <div>
-          <span class="tier" style="color:#00ABDF">Full Detail · Premium</span>
-          <h3>Premium Interior &amp; Exterior</h3>
-          <p class="pkgrow__desc">Full vehicle restoration and protection, the highest level of care inside and out.</p>
+          <span class="tier" style="color:#00ABDF">THE FULL TRANSFORMATION</span>
+          <h3>Premium Interior &amp; Exterior Detail</h3>
+          <p class="pkgrow__desc">This is the full transformation. Our Premium Interior &amp; Exterior Detail is for owners who want the highest level of care, a deep interior restoration that removes odors, stains, and buildup, paired with a full exterior decontamination and a 6-month ceramic coating for lasting gloss. Every surface, inside and out, brought back to its best, at a better value than booking each service alone.</p>
+          <p class="pkgrow__desc" style="margin-top:18px;font-weight:600">Premium interior includes:</p>
           <ul class="pkgrow__list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete premium interior, decontamination, shampooing, leather conditioning, trim restoration</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Comprehensive premium exterior, decon, clay bar, trim restoration, and added protection</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Meticulous attention to both interior and exterior at a better value than booking separately</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Complete interior decontamination</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Thorough vacuum of carpets, seats, and floor mats</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Steam cleaning to sanitize and lift deep-set dirt</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Seat and carpet shampooing for stain and odor removal</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Leather cleaning and conditioning to restore softness and prevent cracking</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Interior plastic and trim restoration</li>
           </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-weight:600">Premium exterior includes:</p>
+          <ul class="pkgrow__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Professional 3-bucket hand wash for a safe, swirl-free wash</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Iron decontamination to remove embedded contaminants</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clay bar treatment to restore paint smoothness</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Detailed cleaning of wheels, tires, and calipers</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Safe removal of tree sap, tar, and bug residue</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>6-month ceramic coating for added gloss and hydrophobic protection</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Exterior plastic trim restoration to revive faded trim</li>
+          </ul>
+          <p class="pkgrow__desc" style="margin-top:18px;font-size:0.9rem;opacity:0.8">*Pricing depends on your vehicle's condition.</p>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="https://app.urable.com/virtual-shop/pxsoT9kI8FilhUXb06DN" target="_blank" rel="noopener">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -548,8 +588,8 @@
 <section class="section bg-alt hairline-top" id="add-ons" data-screen-label="Add-on Services">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Add-ons</span>
-      <h2 class="h-lg">Extras that go the distance.</h2>
+      <span class="eyebrow">Add-On Services</span>
+      <h2 class="h-lg">More Ways to Care for Your Car</h2>
       <p class="pack-intro">Single services you can add to any detail, or book on their own.</p>
     </div>
     <div class="addon-grid">
@@ -557,9 +597,9 @@
         <div class="addon__media"><img src="assets/img/detailing/addon-engine.jpeg" alt="Mustang engine bay after an Engine Bay Detail at Detail Tech" loading="lazy"></div>
         <div class="addon__body">
           <h3>Engine Bay Detail</h3>
-          <p>A meticulous, safe cleaning that restores your engine compartment to like-new condition. We remove built-up grease, dust, and debris with industry-approved methods, then dress plastics and rubber for a clean, factory-fresh finish. A clean engine bay looks great, makes maintenance easier, and helps preserve vital components.</p>
+          <p>A safe, thorough cleaning that brings your engine bay back to like-new. We remove built-up grease, dust, and debris, then dress plastics and rubber for a factory-fresh finish that makes maintenance easier and protects vital components.</p>
           <div class="addon__foot">
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -569,7 +609,7 @@
           <h3>Headlight Restoration</h3>
           <p>We safely remove oxidation and discoloration from your headlights, restoring clarity and improving light performance. Finished with a UV protectant to help maintain long-lasting results.</p>
           <div class="addon__foot">
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -579,17 +619,17 @@
           <h3>Undercarriage Wash</h3>
           <p>A high-pressure rinse that removes salt, dirt, and grime from the hard-to-reach areas underneath your vehicle. Helps prevent rust and corrosion, especially through the winter months.</p>
           <div class="addon__foot">
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
       <article class="addon reveal" data-d="3">
         <div class="addon__media"><img src="assets/img/detailing/addon-maintenance.jpeg" alt="BMW M2 foam wash during a maintenance wash at Detail Tech" loading="lazy"></div>
         <div class="addon__body">
-          <h3>Maintenance Wash</h3>
-          <p>An affordable maintenance wash for our ceramic coating clients, to keep your coating performing and your vehicle looking its best between details.</p>
+          <h3>Ceramic Maintenance Wash</h3>
+          <p>A coating works best when it's cared for. Our maintenance wash is an affordable, coating-safe clean for Detail Tech ceramic clients, keeping the gloss and protection going strong between details.</p>
           <div class="addon__foot">
-            <a class="btn btn--ghost" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+            <a class="btn btn--ghost" href="#quote">Get a Quote</a>
           </div>
         </div>
       </article>
@@ -603,19 +643,19 @@
     <div class="section-head section-head--split reveal">
       <div>
         <span class="eyebrow">The work</span>
-        <h2 class="h-lg">Details off our floor.</h2>
+        <h2 class="h-lg">See Our Detailing Work</h2>
       </div>
-      <p class="lead">Real interiors and exteriors brought back to life at the Crystal Lake shop.</p>
+      <p class="lead">A look at recent detailing work from our team in Crystal Lake, inside and out.</p>
     </div>
     <div class="ppf-gallery-grid reveal">
-      <div class="gal__item"><img src="assets/img/detailing/bmw-interior.avif" alt="Cleaned BMW interior after a Detail Tech interior detail" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/img/detailing/interior-footwell.avif" alt="Detailed interior footwell and seating at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/img/detailing/ferrari-wash.avif" alt="Safe hand wash on a Ferrari during an exterior detail at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/img/detailing/bmw-x6.avif" alt="Glossy grey BMW X6 after an exterior detail at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/img/detailing/porsche-911.avif" alt="Detailed grey Porsche 911 in the Detail Tech shop" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/img/detailing/polish.avif" alt="Paint enhancement polish during an Elite exterior detail at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/img/detailing/amg-interior.avif" alt="Detailed Mercedes-AMG cabin at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/img/detailing.jpg" alt="Full auto detail at the Detail Tech shop" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/gal-corvette-black.jpg" alt="Black Corvette Grand Sport after a full detail by Detail Tech" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/gal-jeep-red.jpg" alt="Red lifted Jeep Wrangler detailed at the Detail Tech shop" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/gal-mercedes-s.jpg" alt="Black Mercedes-Benz S-Class after a Detail Tech detail" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/gal-mclaren.jpg" alt="Black McLaren 720S detailed by Detail Tech" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/premium-corvette.jpg" alt="Red Corvette convertible detailed at the Detail Tech shop" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/combo-amg-exterior.jpg" alt="Grey Mercedes-AMG E63 after a full interior and exterior detail" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/combo-wheel-wash.jpg" alt="Hand washing the wheels of a blue BMW at Detail Tech" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/detailing/foam-wash-corvette.jpg" alt="Blue Corvette covered in foam during a hand wash at Detail Tech" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -629,9 +669,9 @@
     <div class="section-head section-head--split reveal">
       <div>
         <span class="eyebrow">Watch it happen</span>
-        <h2 class="h-lg">The transformation, up close.</h2>
+        <h2 class="h-lg">SEE THE TRANSFORMATION</h2>
       </div>
-      <p class="lead">Before and after details, steam, and shine, straight from the shop. More on YouTube and Instagram <a href="https://www.instagram.com/the_detailtech/?hl=en" target="_blank" rel="noopener" style="color:var(--blue)">@the_detailtech</a>.</p>
+      <p class="lead">Before and after details, steam, and shine, straight from the shop. More on <a href="https://www.youtube.com/@TheDetailTech" target="_blank" rel="noopener" style="color:var(--blue)">YouTube</a> and Instagram <a href="https://www.instagram.com/the_detailtech/?hl=en" target="_blank" rel="noopener" style="color:var(--blue)">@the_detailtech</a>.</p>
     </div>
 
     <div class="reveal" style="margin-top:44px;max-width:960px;margin-inline:auto">
@@ -646,37 +686,37 @@
 <section class="section" id="process" data-screen-label="How It Works">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">How it works</span>
-      <h2 class="h-lg">Drop off. We detail. Drive clean.</h2>
+      <span class="eyebrow">THE PROCESS</span>
+      <h2 class="h-lg">How a Detail Works at Detail Tech</h2>
     </div>
     <div class="process-grid">
       <div class="step reveal">
         <div class="step__n">1</div>
         <div class="step__rule"></div>
         <h3>Tell us your vehicle</h3>
-        <p>Pick interior, exterior, or the full package, in Standard or Premium.</p>
+        <p>Pick interior, exterior, or the full package. Not sure what your car needs? We'll help you choose.</p>
       </div>
       <div class="step reveal" data-d="1">
         <div class="step__n">2</div>
         <div class="step__rule"></div>
         <h3>We quote it</h3>
-        <p>A real number back, usually the same day.</p>
+        <p>A straightforward price, usually within the day, tailored to your vehicle.</p>
       </div>
       <div class="step reveal" data-d="2">
         <div class="step__n">3</div>
         <div class="step__rule"></div>
         <h3>We detail it</h3>
-        <p>Safe wash, steam, decon, and finish, done right and inspected.</p>
+        <p>Safe hand wash, steam, and decontamination, done carefully and inspected before it's finished.</p>
       </div>
       <div class="step reveal" data-d="3">
         <div class="step__n">4</div>
         <div class="step__rule"></div>
         <h3>You drive clean</h3>
-        <p>Pick up a vehicle that looks and feels like new.</p>
+        <p>Pick up a vehicle that looks, feels, and smells like new.</p>
       </div>
     </div>
     <div class="process-cta reveal" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px">
-      <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--primary" href="#quote">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn--ghost" href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Call (224) 803-3305</a>
     </div>
   </div>
@@ -685,14 +725,14 @@
 <!-- ============ WHY DETAIL TECH ============ -->
 <section class="section bg-alt hairline-top" id="why" data-screen-label="Why Detail Tech">
   <div class="wrap certs__grid">
-    <div class="certs__photo reveal"><img src="assets/img/certs-photo.jpg" alt="Dan holding Detail Tech certifications" loading="lazy" /></div>
+    <div class="certs__photo reveal"><img src="assets/img/certs-photo.jpg" alt="Detail Tech team holding the 2025 Best of the Fox award for Car Wash and Detailing in McHenry County" loading="lazy" /></div>
     <div class="reveal" data-d="1">
-      <span class="eyebrow" style="margin-bottom:18px">Why Detail Tech</span>
-      <h2 class="h-lg" style="margin:0 0 18px">Credentials you can check.</h2>
+      <span class="eyebrow" style="margin-bottom:18px">Why book with us</span>
+      <h2 class="h-lg" style="margin:0 0 18px">Why Detail Tech</h2>
       <ul class="why__list" style="margin-top:26px">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Safe, swirl-free 3-bucket wash process</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>The same team and standards as our protection work</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Voted Best Detailer in McHenry County, 2024 and 2025</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Certified System X, Legend PPF, and SunTek installers</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>The same team and standards as our protection work</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Licensed and insured Crystal Lake shop</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>310+ five-star Google reviews</li>
       </ul>
@@ -704,7 +744,7 @@
         </div>
       </div>
       <div class="mobile-actions" style="margin-top:30px">
-        <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--primary" href="#quote">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn--ghost" href="tel:+12248033305">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
           Call (224) 803-3305
@@ -718,9 +758,9 @@
 <section class="section" id="reviews" data-screen-label="Reviews">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Word on the street</span>
-      <h2 class="h-lg">What customers say.</h2>
-      <p class="lead">Interior, exterior, and full details. Here's what customers say after working with our Crystal Lake shop.</p>
+      <span class="eyebrow">CUSTOMER REVIEWS</span>
+      <h2 class="h-lg">Hear It From Our Detail Customers</h2>
+      <p class="lead">Professional detailing by our expert team. Here's what drivers say after getting their vehicles cleaned up at our Crystal Lake shop.</p>
     </div>
     <div class="reviews-grid" style="margin-top:40px">
       <article class="greview reveal">
@@ -774,8 +814,8 @@
 <section class="section" id="faq" data-screen-label="FAQ">
   <div class="wrap">
     <div class="section-head reveal" style="text-align:center;margin-inline:auto">
-      <span class="eyebrow eyebrow--center">Common questions</span>
-      <h2 class="h-lg">Detailing, answered.</h2>
+      <span class="eyebrow eyebrow--center">FAQs</span>
+      <h2 class="h-lg">Questions We Hear a Lot</h2>
       <p class="lead" style="margin-inline:auto">Got a different one? Text the shop at <a href="tel:+12248033305" style="color:var(--blue)">(224) 803-3305</a>.</p>
     </div>
     <div class="faq-layout">
@@ -792,8 +832,8 @@
         </div>
       </aside>
       <div class="faq-list reveal" data-d="1">
-        <div class="faq reveal is-open">
-          <button class="faq__q" aria-expanded="true">What is the difference between Standard and Premium?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq reveal">
+          <button class="faq__q" aria-expanded="false">What is the difference between Standard and Premium?<span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
           <div class="faq__a"><div><p>Standard is a thorough clean. Premium goes deeper, adding decontamination, shampooing, leather conditioning, and trim restoration for a full reset.</p></div></div>
         </div>
         <div class="faq reveal">
@@ -822,7 +862,7 @@
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="section quote-cta" data-screen-label="Final CTA">
+<section class="section quote-cta" id="quote" data-screen-label="Final CTA">
   <div class="wrap quote-grid">
     <div class="reveal">
       <span class="eyebrow">Let's go</span>
@@ -933,7 +973,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
     Call
   </a>
-  <a class="btn btn--primary" href="https://app.urable.com/form/pxsoT9kI8FilhUXb06DN/GsoJU7spNrMB6gylHQiU">Get a Quote</a>
+  <a class="btn btn--primary" href="#quote">Get a Quote</a>
 </div>
 
 <!-- ============ Service + FAQ SCHEMA ============ -->
@@ -976,17 +1016,6 @@
 </script>
 
 <script>
-(function(){
-  var tabs = document.querySelectorAll('.pkgtab');
-  var panels = document.querySelectorAll('.pkg-panel');
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      var name = t.getAttribute('data-tab');
-      tabs.forEach(function(x){ var on = x===t; x.classList.toggle('is-active', on); x.setAttribute('aria-selected', on?'true':'false'); });
-      panels.forEach(function(p){ p.classList.toggle('is-active', p.getAttribute('data-panel')===name); });
-    });
-  });
-})();
 </script>
 <script src="script.js"></script>
 </body>
