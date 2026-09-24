@@ -119,9 +119,10 @@
 @media (max-width: 860px) { .film-grid { grid-template-columns: 1fr; } }
 
 /* --- PPF gallery --- */
-.ppf-gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; }
-.ppf-gallery-grid .gal__item { aspect-ratio: 4/3; }
-@media (max-width: 980px) { .ppf-gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+.ppf-gallery-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 44px; }
+.ppf-gallery-grid .gal__item { aspect-ratio: 4/3; grid-column: span 2; }
+.ppf-gallery-grid .gal__item:nth-child(n+4) { grid-column: span 3; aspect-ratio: 16/10; }
+@media (max-width: 980px) { .ppf-gallery-grid { grid-template-columns: repeat(2, 1fr); } .ppf-gallery-grid .gal__item, .ppf-gallery-grid .gal__item:nth-child(n+4) { grid-column: span 1; aspect-ratio: 4/3; } .ppf-gallery-grid .gal__item:first-child { grid-column: span 2; aspect-ratio: 16/9; } }
 @media (max-width: 480px) { .ppf-gallery-grid { gap: 10px; } }
 
 /* --- Shorts carousel --- */
@@ -183,7 +184,7 @@
   <div class="wrap topbar__inner">
     <span class="topbar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://maps.google.com/?q=3305+State+Rte+31+Suite+2+Crystal+Lake+IL+60012" target="_blank" rel="noopener">3305 State Rte. 31, Crystal Lake, IL</a></span>
     <span class="topbar__divider topbar__item--hide"></span>
-    <span class="topbar__item topbar__item--hide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sat · 8AM–6PM</span>
+    <span class="topbar__item topbar__item--hide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon–Sun · 8AM–5PM</span>
     <span class="topbar__spacer"></span>
     <span class="topbar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><a href="tel:+12248033305">(224) 803-3305</a></span>
   </div>
@@ -304,7 +305,7 @@
         <span class="tstrip__starrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
         </span>
-        <span><b>5.0</b> from 310+ Google reviews</span>
+        <span><b>5.0</b> from 328+ Google reviews</span>
       </div>
     </div>
     <div class="tstrip__grid">
@@ -347,7 +348,7 @@
       </div>
     </div>
     <figure class="whatis-figure reveal" data-d="1">
-      <img src="assets/img/ppf-application.webp" alt="Paint protection film being applied to a vehicle panel" loading="lazy" />
+      <img src="assets/img/ppf-gmc-install.png" alt="Detail Tech installers applying paint protection film to the front end of a GMC" loading="lazy" style="object-position:center 30%" />
     </figure>
   </div>
 </section>
@@ -370,7 +371,7 @@
         <div>
           <span class="tier" style="color:#C7CCD1">PROTECTS THE HIGH-IMPACT ZONES</span>
           <h3>Partial Front End</h3>
-          <div class="pkgrow__price"><b>$1,500</b><span>starting</span></div>
+          <div class="pkgrow__price"><b>$1,300</b><span>starting</span></div>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full front bumper</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Headlights</li>
@@ -392,7 +393,7 @@
         <div>
           <span class="tier" style="color:#E0B44A">MOST POPULAR PACKAGE</span>
           <h3>Full Front End</h3>
-          <div class="pkgrow__price"><b>$2,200</b><span>starting</span></div>
+          <div class="pkgrow__price"><b>$2,000</b><span>starting</span></div>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full front bumper</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Full hood</li>
@@ -440,7 +441,7 @@
         <div>
           <span class="tier" style="color:#D6D9DE">TOTAL PEACE OF MIND</span>
           <h3>Full Body PPF</h3>
-          <div class="pkgrow__price"><b>$6,500</b><span>starting</span></div>
+          <div class="pkgrow__price"><b>$6,000</b><span>starting</span></div>
           <ul class="pkgrow__list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Every painted surface</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Whole vehicle wrapped</li>
@@ -463,7 +464,7 @@
           <h3>Windshield Protection</h3>
           <div class="pkgrow__price"><b>$600</b><span>starting</span></div>
           <ul class="pkgrow__list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>XPEL Windshield Protection Film</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Windshield protection film</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Blocks rock chips and road debris</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Optically clear, full visibility</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Added UV protection</li>
@@ -471,7 +472,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Reduces costly chips and cracks</li>
           </ul>
           <div class="pkgrow__meta">
-            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>TBD - Years Warranty</span>
+            <span class="pkgrow__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>1-Year Warranty</span>
           </div>
           <div class="pkgrow__actions">
             <a class="btn btn--primary" href="#quote">Get a Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -516,13 +517,11 @@
       <p class="lead">Take a look at recent PPF installs by our certified team at the Crystal Lake shop.</p>
     </div>
     <div class="ppf-gallery-grid reveal">
-      <div class="gal__item"><img src="assets/gallery/g15.jpg" alt="PPF install on a Chevrolet Camaro at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/gallery/g36.jpg" alt="PPF install on a black Corvette at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/gallery/g07.jpg" alt="PPF install on a BMW M4 at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/gallery/g13.jpg" alt="Headlight protected with film at Detail Tech" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/gallery/g38.jpg" alt="Corvettes on the Detail Tech shop floor" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/gallery/g29.jpg" alt="Porsche 911 at the Detail Tech shop" loading="lazy" /></div>
-      <div class="gal__item"><img src="assets/gallery/g22.jpg" alt="Porsche Panamera at the Detail Tech shop" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/ppf-work/camaro-zl1.png" alt="Black Chevrolet Camaro ZL1 with PPF at Detail Tech" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/ppf-work/corvette-c8.png" alt="Blue Corvette C8 with PPF at Detail Tech" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/ppf-work/chevelle-ss.png" alt="Blue Chevelle SS with PPF at Detail Tech" loading="lazy" /></div>
+      <div class="gal__item"><img src="assets/img/ppf-work/amg-c63.png" alt="Grey Mercedes-AMG C63 convertible with PPF at Detail Tech" loading="lazy" style="object-position:center 60%" /></div>
+      <div class="gal__item"><img src="assets/img/ppf-work/range-rover.png" alt="White Range Rover with PPF at Detail Tech" loading="lazy" style="object-position:center 55%" /></div>
     </div>
   </div>
 </section>
@@ -644,7 +643,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Legend PPF Authorized installer</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Voted Best Detailer in McHenry County, 2024 and 2025</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Licensed and insured Crystal Lake shop</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>310+ five-star Google reviews</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>328+ five-star Google reviews</li>
       </ul>
       <div class="award-credential">
         <img src="assets/award-best-detailer.png" alt="McHenry County Awarded Best Detailer 2024 and 2025" />
@@ -678,7 +677,7 @@
         <div class="reviews-head__big">5.0</div>
         <div class="reviews-head__meta">
           <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
-          <p><span class="text-blue">5.0</span> from 310+ Google reviews</p>
+          <p><span class="text-blue">5.0</span> from 328+ Google reviews</p>
           <p class="award-inline" style="margin-top:8px;color:var(--text);font-weight:600"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>Voted Best Detailer in McHenry County · 2024 &amp; 2025</p>
         </div>
       </div>
@@ -729,7 +728,7 @@
     </div>
     <div class="faq-layout">
       <aside class="faq-contact reveal">
-        <img src="assets/img/owner.jpg" alt="Dan at the Detail Tech shop" loading="lazy" />
+        <img src="assets/img/ppf-vw-tiguan.jpg" alt="Blue Volkswagen Tiguan under the hex lights at the Detail Tech shop" loading="lazy" style="object-position:center 45%" />
         <div class="faq-contact__overlay">
           <span class="faq-contact__badge"><i></i>Available now</span>
           <div class="faq-contact__body">
@@ -783,7 +782,7 @@
       <p class="lead" style="margin-top:18px">Tell us about your vehicle, and we'll quickly send you a fair offer. No pressure, no hassle.</p>
       <div class="cta-trust">
         <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
-        <b>5.0</b><span>From 310+ Google reviews</span>
+        <b>5.0</b><span>From 328+ Google reviews</span>
       </div>
       <ul class="cta-benefits">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Free, no-obligation quote</li>
@@ -864,7 +863,7 @@
             <li><a href="https://maps.google.com/?q=3305+State+Rte+31+Suite+2+Crystal+Lake+IL+60012" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>3305 State Rte. 31, Suite&nbsp;#2<br />Crystal Lake, IL 60012</span></a></li>
             <li><a href="tel:+12248033305"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg><span>(224) 803-3305</span></a></li>
             <li><a href="mailto:info@thedetailtech.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>info@thedetailtech.com</span></a></li>
-            <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Mon–Sat · 8:00 AM – 6:00 PM</span></a></li>
+            <li><a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Mon–Sun · 8:00 AM – 5:00 PM</span></a></li>
             <li><a href="https://www.google.com/maps/place/Detail+Tech+-+Paint+Protection+Film,+Ceramic+Coating+%26+Window+Tints/@42.2823284,-88.2874242,3a,75y,90t/data=!3m8!1e1!3m6!1sCIABIhDFwWtttBW9d8h06HCxo5u0!2e10!3e11!6shttps:%2F%2Flh3.googleusercontent.com%2Fgpms-cs-s%2FAFP8RcOdKEBdVSY1wN7bduFwdHQXrsIfAusGs6WN6CWP9wsT6nWlogujenXgS3EUmxMhBUACTAI4Ot99Hwb_RF1vf5vPUeh4TCJhyHlprE5m20yhU8U6zCAobfLmgMN6sWKs0g-bS4y0P1lyU7i3%3Dw900-h600-k-no-pi0-ya189.7899932861328-ro0-fo100!7i7872!8i3936!4m19!1m9!3m8!1s0x880f724a7c400001:0xe85bffdd492ae8b9!2s3305+State+Rte+31+%232,+Crystal+Lake,+IL+60012,+USA!3b1!8m2!3d42.2822737!4d-88.2877015!10e5!16s%2Fg%2F11nssn5hvp!3m8!1s0x25846aeb01b4987:0x3f00acc29ce2fcdb!8m2!3d42.2823082!4d-88.2874516!10e5!14m1!1BCgIgARICCAI!16s%2Fg%2F11jsp_l618?entry=ttu" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg><span>Take a virtual tour</span></a></li>
           </ul>
         </address>
